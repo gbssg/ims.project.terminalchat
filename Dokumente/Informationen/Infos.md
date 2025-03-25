@@ -1,18 +1,29 @@
 # Informations Dokument
+
+## Client zu Client kommunikation
+
+Ich habe ein bisschen recherchiert und bin zur Erkentniss gekommen,   
+dass ich die Komunikation von Client zu Client via Peer2Peer Netzwerk einleiten werde.
+
+### Peer to Peer
+https://de.wikipedia.org/wiki/Peer-to-Peer
+
 ## ToDo-List
 ### Planung
 
 - [ ] IRC-Client planen
   - [ ] CtC-Kommunikation planen
-    - [ ] Diagramme entwerfen
-    - [ ] 
+    - [ ] Diagramme erstellen
+      - [x] CtC direct communication Diagramm
+      - [ ] Programm runtime Diagramm
+    - [ ] Programmstrucktur entwerfen
 - [ ] IRC-Server planen
   - [ ] CtS/StC-Kommunikation planen
+    - [ ] Diagramme erstellen
+    - [ ] Serverstrucktur planen
 - [ ] Nachrichtenübertragungsprotokoll erstellen
   - [ ] Nachrichten Layout erstellen
   - [ ] Nachrichtenadressierung definieren
-  - [ ] 
-
 
 
 ## Links:
