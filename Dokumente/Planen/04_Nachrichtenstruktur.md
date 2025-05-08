@@ -1,0 +1,6 @@
+# Nachrichtenstruktur
+## Direktnachrichten
+### bsp:  
+```
+[]
+```
