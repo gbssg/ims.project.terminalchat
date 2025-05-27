@@ -1,0 +1,63 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.2 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.2">
+  <diagram name="Seite-1" id="UDLO7woWCGyGMYNt57kx">
+    <mxGraphModel dx="1090" dy="726" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="299MFogpwVAEEZmMLDXw-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="299MFogpwVAEEZmMLDXw-2" target="299MFogpwVAEEZmMLDXw-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-2" value="Start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="364" y="40" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="299MFogpwVAEEZmMLDXw-3" target="299MFogpwVAEEZmMLDXw-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-3" value="Prompt ServerIP" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="364" y="120" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="299MFogpwVAEEZmMLDXw-4" target="299MFogpwVAEEZmMLDXw-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-4" value="Connect to Server" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="364" y="210" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="299MFogpwVAEEZmMLDXw-5" target="299MFogpwVAEEZmMLDXw-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-5" value="Load Screen" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="364" y="300" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="299MFogpwVAEEZmMLDXw-6" target="299MFogpwVAEEZmMLDXw-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-6" value="Select a user" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="364" y="390" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="299MFogpwVAEEZmMLDXw-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="110" y="480" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-7" value="Write a message" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="430" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-8" value="Switch to serverlist" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="480" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-9" value="DM a User" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="364" y="480" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-10" value="Send a message" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="500" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-12" value="select a server" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="560" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="299MFogpwVAEEZmMLDXw-14" value="Switch to channellist" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="640" width="100" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,125 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.2 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.2">
+  <diagram name="Seite-1" id="n_Q7YipYiDvb02MQNxgG">
+    <mxGraphModel dx="908" dy="605" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Jw-f0ANg6_ctonJotLks-1" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Programmablauf v.1&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" vertex="1" parent="1">
+          <mxGeometry x="328" y="10" width="172" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-2" target="Jw-f0ANg6_ctonJotLks-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-2" value="Start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-3" target="Jw-f0ANg6_ctonJotLks-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-3" value="Prompt to input server IP address" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="150" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-4" target="Jw-f0ANg6_ctonJotLks-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-4" value="Connect to server wit set IP address" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-7" target="Jw-f0ANg6_ctonJotLks-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-7" value="Draw screen onto terminal interface" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-13" target="Jw-f0ANg6_ctonJotLks-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-13" value="User inputs&amp;nbsp;&lt;div&gt;server IP address&lt;/div&gt;" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="250" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-15" target="Jw-f0ANg6_ctonJotLks-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-15" value="User inputs a message and sends it" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=13;arcSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="450" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-16" target="Jw-f0ANg6_ctonJotLks-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-16" value="Send a message to the server" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="450" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-19" target="Jw-f0ANg6_ctonJotLks-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-19" value="Recieves a message from the server" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="549.5" width="100" height="70.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-22" target="Jw-f0ANg6_ctonJotLks-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-22" value="display the message in the MessageLog" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="650" width="100" height="70.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-25" target="Jw-f0ANg6_ctonJotLks-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-25" value="Select Userlist in navbar" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="750" width="100" height="70.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-28" target="Jw-f0ANg6_ctonJotLks-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-28" value="User switches navbar" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="750" width="100" height="71" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-30" target="Jw-f0ANg6_ctonJotLks-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-30" value="Update SideBar to display Userlist" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="850" width="100" height="70.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-33" target="Jw-f0ANg6_ctonJotLks-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-33" value="Select user from SideBar" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="950" width="100" height="70.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-35" target="Jw-f0ANg6_ctonJotLks-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-35" value="User selects&amp;nbsp;&lt;div&gt;User from sidebar&lt;/div&gt;" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="950" width="100" height="71" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-37" target="Jw-f0ANg6_ctonJotLks-41">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="1140" />
+              <mxPoint x="300" y="1140" />
+              <mxPoint x="300" y="130" />
+              <mxPoint x="370" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-37" value="Send DM to the Server" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1050" width="100" height="70.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-39" target="Jw-f0ANg6_ctonJotLks-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-39" value="User writes&lt;div&gt;/sends DM&lt;/div&gt;" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;" vertex="1" parent="1">
+          <mxGeometry x="180" y="1050" width="100" height="71" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Jw-f0ANg6_ctonJotLks-41" target="Jw-f0ANg6_ctonJotLks-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-41" value="Update MessageLog with DM" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="150" width="100" height="70.5" as="geometry" />
+        </mxCell>
+        <mxCell id="Jw-f0ANg6_ctonJotLks-43" value="End" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="320" y="240" width="100" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
