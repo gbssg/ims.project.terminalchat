@@ -1,0 +1,52 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.2 Chrome/134.0.6998.205 Electron/35.3.0 Safari/537.36" version="27.0.2">
+  <diagram name="Seite-1" id="55o7ntzq0PXvVZQQCwTc">
+    <mxGraphModel dx="1426" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-3" value="Server" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="310" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-4" value="Client" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="370" y="40" width="870" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-5" value="Forward messages" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="190" y="120" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-6" value="Address messages" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="120" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-7" value="Recive messages" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="250" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-9" value="Manage messages" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=80;height=30;" vertex="1" parent="1">
+          <mxGeometry x="45" y="80" width="285" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-10" value="Identify reciver" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="185" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-12" value="Manage screen" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="1">
+          <mxGeometry x="380" y="80" width="840" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-13" value="Draw Widgets" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="390" y="120" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-14" value="Manage Widgets" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=70;height=30;" vertex="1" parent="1">
+          <mxGeometry x="390" y="180" width="820" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-15" value="Draw MessageLog&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap-mode: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22Server%22%20style%3D%22html%3D1%3BwhiteSpace%3Dwrap%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%2290%22%20y%3D%2280%22%20width%3D%22110%22%20height%3D%2250%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="400" y="220" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-16" value="Draw" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="660" y="220" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-17" value="Draw Textbox" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="530" y="220" width="110" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="INnH7p9xGzet9Sz2gN_V-18" value="Draw Widgets" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="520" y="120" width="110" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
