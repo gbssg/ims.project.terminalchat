@@ -4,8 +4,9 @@ BeispielCode/TerminalLANCommunication/Client/bin
 BeispielCode/TerminalLANCommunication/Client/obj
 BeispielCode/TerminalLANCommunication/TerminalLANCommunication/bin
 BeispielCode/TerminalLANCommunication/TerminalLANCommunication/obj
-Code/ClientTerminalChatV1/ServerTerminalChatV1/bin
-Code/ClientTerminalChatV1/ServerTerminalChatV1/obj
-Code/ClientTerminalChatV1/TerminalChatV1/bin
-Code/ClientTerminalChatV1/TerminalChatV1/obj
+Code/TerminalChatV1/TerminalChatServerV1/bin
+Code/TerminalChatV1/TerminalChatServerV1/obj
+Code/TerminalChatV1/TerminalChatV1/bin
+Code/TerminalChatV1/TerminalChatV1/obj
+
 
