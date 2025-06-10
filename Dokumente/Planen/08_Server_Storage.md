@@ -11,4 +11,4 @@ Es wird voraussichtlich 2 JSON files auf der Serverseite haben:
 - serverConfig.json
   - enthält daten über die Serverstrucktur, abrufbar von clientside wenn sie dem server beitreten.
 - userData.json
-  - enthält daten über nutzer die online oder offline sind, nutzer werden beim beitreten des servers hinzugefügt, werden bei dem verlassen des servers offline gesetzt. diese daten werden an clients gesendet wenn das JSON geupdatet wird aka neue nutzer joinen, offline gehen, oder online kommen.
+  - enthält daten über nutzer die online oder offline sind, nutzer werden beim beitreten des servers hinzugefügt, werden bei dem verlassen des servers offline gesetzt. diese daten werden an clients gesendet wenn das JSON geupdatet wird aka neue nutzer joinen, offline gehen, oder online kommen
