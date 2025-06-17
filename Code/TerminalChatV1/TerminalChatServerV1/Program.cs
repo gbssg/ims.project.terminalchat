@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net;
-using System.Net.Sockets;
 
 namespace TerminalChatServerV1
 {
@@ -94,18 +95,31 @@ namespace TerminalChatServerV1
                 }
             }
         }
-
-        // Diese Methode holt die lokale IP-Adresse des Servers
         static string GetLocalIPAddress()
         {
-            foreach (var item in Dns.GetHostEntry(Dns.GetHostName()).AddressList)
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
             {
-                if (item.AddressFamily == AddressFamily.InterNetwork)
+                if (ni.OperationalStatus != OperationalStatus.Up ||
+                    ni.NetworkInterfaceType == NetworkInterfaceType.Loopback ||
+                    ni.Description.ToLower().Contains("vmware") ||
+                    ni.Description.ToLower().Contains("virtual"))
                 {
-                    return item.ToString();
+                    continue;
+                }
+
+                var ipProps = ni.GetIPProperties();
+
+                foreach (var ip in ipProps.UnicastAddresses)
+                {
+                    if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                    {
+                        return ip.Address.ToString();
+                    }
                 }
             }
-            throw new Exception("Keine Netzwerkverbindung gefunden!");
+
+            throw new Exception("Keine gültige physische Netzwerkverbindung gefunden!");
         }
+
     }
 }

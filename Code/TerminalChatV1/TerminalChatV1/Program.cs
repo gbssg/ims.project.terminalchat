@@ -28,7 +28,7 @@ namespace TerminalChatV1
                             int bytesRead = stream.Read(buffer, 0, buffer.Length);
                             if (bytesRead == 0) break;
                             string receivedMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                            Console.WriteLine("\nServer: " + receivedMessage);
+                            Console.WriteLine("\nClient: " + receivedMessage);
                             Console.Write("Du: ");
                         }
                     });
