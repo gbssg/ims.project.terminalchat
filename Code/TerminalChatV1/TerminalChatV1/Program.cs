@@ -1,16 +1,15 @@
-﻿using System.Net.Sockets;
+﻿using System.Net.Sockets; 
 using System.Text;
 
 namespace TerminalChatV1
 {
     internal class Program
     {
+        static string serverIp;
+        static int port;
         static void Main()
         {
-            Console.Write("Gib die Server-IP ein: ");
-            string serverIp = Console.ReadLine() ?? "127.0.0.1"; // Standard ist localhost
-
-            int port = 5000;
+            Connect();
 
             try
             {
@@ -26,8 +25,11 @@ namespace TerminalChatV1
                         while (true)
                         {
                             int bytesRead = stream.Read(buffer, 0, buffer.Length);
+
                             if (bytesRead == 0) break;
+
                             string receivedMessage = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
                             Console.WriteLine("\nClient: " + receivedMessage);
                             Console.Write("Du: ");
                         }
@@ -52,6 +54,12 @@ namespace TerminalChatV1
                 Console.ReadLine();
             }
         }
+        static void Connect()
+        {
+            Console.Write("Gib die Server-IP ein: ");
+            serverIp = Console.ReadLine() ?? "127.0.0.1"; // Standard ist localhost
 
+            port = 5000;
+        }
     }
 }
