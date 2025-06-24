@@ -7,4 +7,5 @@ Nachrichten und Datenpackete nur weiterleiten.
   - Nachrichten
   - Serveraktivitäten
   - Serverstatus (online, offline)
+  - ServerStruktur (Kanäle, Chats)
 

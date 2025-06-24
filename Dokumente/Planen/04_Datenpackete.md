@@ -13,3 +13,22 @@ Andere Idee wäre noch eine RESTful API jedoch finde ich das nicht sehr sinnvoll
 weitere Komplikationen geben würde mit den ganzen session keys und weiteres und da 
 das Projekt eine eher simplere Struktur haben sollte werde ich mit JSON arbeiten.
 
+### Packete
+
+Es wird verschiedene Packete geben, sie werden mit einem Wert unterschieden.  
+Die unterschiedlichen Packete sind: MessagePacket, ServerInit, ServerInfo, dabei gibt es noch ClientUpdate  
+Grob:
+- MessagePacket:
+  - Nachrichteninformationen
+  - TimeStamp
+  - Sender & Empfänger
+- ServerInit:
+  - Serverstruktur
+  - Anzahl Kanäle
+  - Kanal Namen
+- ServerInfo:
+  - Wie viele User online sind
+- ClientUpdate:
+  - Username
+  - UserID
+  - Timestamp
