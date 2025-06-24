@@ -7,7 +7,9 @@ Termine:
 ### Was ist der L-Day?
 LinuxDay, auch L-Day findet jährlich in Dornbirn Österreich statt, da ich dort auch regelmässig hingehe und der Stand meines Vaters 
 oft noch Platz hat für weitere Projekte, würde ich meins dort gerne ausstellen. Es is auch im Tischmesse Setting wie auch an dem 
-Elternabend. 
+Elternabend. An diesem Anlass erfährt man viel interessantes über einen weiten Themenbereich, auch wenn ich mit diesen 
+Informationen dort nich viel anfangen kann, interessiert es mich trozdem. Es gibt dort möglichkeiten Präsentationen zu führen und 
+zu zuhören 
 
 ### Was muss das Projekt zusätzlich bieten?
 Die zusätzlichen Voraussetzungen dazu währen: Es muss Linux portabel sein. Mit einem Self-Contained Executable sollte das aber kein 
