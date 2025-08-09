@@ -9,6 +9,8 @@ namespace TerminalChatV1
         static int port;
         static void Main()
         {
+            KeyInputThread();
+            /*
             Connect();
 
             try
@@ -36,6 +38,7 @@ namespace TerminalChatV1
                     });
                     receiveThread.Start();
 
+
                     while (true)
                     {
                         Console.Write("Du: ");
@@ -53,6 +56,7 @@ namespace TerminalChatV1
                 Console.WriteLine("Fehler: " + e.Message);
                 Console.ReadLine();
             }
+            */
         }
         static void Connect()
         {
@@ -61,5 +65,20 @@ namespace TerminalChatV1
 
             port = 5000;
         }
+        static void KeyInputThread()
+        {
+            Thread keyInput = new Thread(() =>
+            {
+                while (true)
+                {
+
+                    ConsoleKey Key = Console.ReadKey(intercept:true).Key;
+                    Console.Write(Key.ToString());
+                    // if Key is ... then ... aktion bsp swithch tabs.
+                }
+            });
+            keyInput.Start();
+        }
+            
     }
 }
