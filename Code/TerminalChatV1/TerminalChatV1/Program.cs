@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets; 
+﻿using System.Collections;
+using System.Net.Sockets; 
 using System.Text;
 
 namespace TerminalChatV1
@@ -7,6 +8,9 @@ namespace TerminalChatV1
     {
         static string serverIp;
         static int port;
+        static string[] tabs = { "TextBox", "TB1", "TB2", "TB3", "TB4" };
+        static int tabsIndex = 0;
+
         static void Main()
         {
             KeyInputThread();
@@ -74,10 +78,25 @@ namespace TerminalChatV1
 
                     ConsoleKey Key = Console.ReadKey(intercept:true).Key;
                     Console.Write(Key.ToString());
+                    switch (Key)
+                    {
+                        case ConsoleKey.Tab:
+                            NextTab();
+                                break;
+                    }
+
+
                     // if Key is ... then ... aktion bsp swithch tabs.
                 }
             });
             keyInput.Start();
+        }
+        static void NextTab()
+        {
+            if (tabsIndex >= 4) tabsIndex = 0;
+            else ++tabsIndex;
+            Console.WriteLine(tabs[tabsIndex]);
+
         }
             
     }
