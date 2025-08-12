@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Net.Sockets;
 using System.Text;
 
 namespace TerminalChatV1
@@ -6,63 +7,74 @@ namespace TerminalChatV1
     public class Box
     {
         public int id;
-        public string name;
-        public bool infocus;
+        public string? name { get; set; }
+        public bool infocus { get; set; }
     }
     public class Tab
     {
         public int id; 
-        public string name;
-        public bool selected;
+        public string? name { get; set; }
+        public bool selected { get; set; }
     }
     //Placeholder Message Class
     public class Message
     {
         public int id;
-        public int sender;
-        public int reciever;
+        public string? sender;
+        public string? reciever;
         public DateTime timestamp;
-        public string body;
+        public string? body;
     }
     internal class Program
     {
-        static string serverIp;
+        static string? serverIp;
         static int port;
 
         static int boxInfocus = 0;
-        static int MaxCharV = 30;
+        static int MaxCharV = 29;
         static int MaxCharH = 121;
+
+        static List<Box> boxes = new List<Box>();
+        static List<Tab> tabs = new List<Tab>();
 
         static void Main()
         {
             // Create Boxes and Boxlist
-            List<Box> Boxes = new List<Box>();
             Box textBox = new Box();
-            Boxes.Add(textBox);
+            boxes.Add(textBox);
 
             Box infoBox = new Box();
-            Boxes.Add(infoBox);
+            boxes.Add(infoBox);
             
             Box messageBox = new Box();
-            Boxes.Add(messageBox);
+            boxes.Add(messageBox);
 
-            Console.WriteLine(Boxes);
+            Console.WriteLine(boxes);
 
             // Create Tabs and Tablist
-            List<Tab> tabs = new List<Tab>();
             Tab serverList = new Tab();
+            serverList.name = "Serverlist";
             tabs.Add(serverList);
 
             Tab channelList = new Tab();
+            channelList.name = "Channellist";
             tabs.Add(channelList);
 
             Tab userlist = new Tab();
+            userlist.name = "Userlist";
             tabs.Add(userlist);
 
-            Tab notification = new Tab();
-            tabs.Add(notification);
+            Tab notifications = new Tab();
+            notifications.name = "Notifications";
+            tabs.Add(notifications);
+
+            Tab exit = new Tab();
+            exit.name = "exit";
+            tabs.Add(exit);
+
             Console.WriteLine(tabs);
             Thread.Sleep(1000);
+            Console.Clear();
             Setup();
             // TODO: create Tabs
             //Connect();
@@ -73,7 +85,7 @@ namespace TerminalChatV1
         }
         static void Connect()
         {
-            Console.Write("Gib die Server═IP ein: ");
+            Console.Write("Gib die Server-IP ein: ");
             serverIp = Console.ReadLine() ?? "127.0.0.1"; // Standard ist localhost
 
             port = 5000;
@@ -155,13 +167,20 @@ namespace TerminalChatV1
         }
         static void Setup()
         {
+            Message message = new Message();
             DrawTextbox();
+            DrawTabs();
             DrawInfobox();
+            DrawMessage(message);
 
+        }
+        static void resetCursor()
+        {
+            Console.SetCursorPosition(0, 0);
         }
         static void DrawTextbox()
         {
-            int TBposY = MaxCharV - 6;
+            int TBposY = MaxCharV - 5;
             
             string TBascii = "╔═══════════════════════════════════════════════════════════════════════════════════════════════════╩══════════════════╣" +
                            "\n║                                                                                                                      ║" +
@@ -171,8 +190,7 @@ namespace TerminalChatV1
 
             Console.SetCursorPosition(0, TBposY);
             Console.Write(TBascii);
-
-
+            resetCursor();
         }
         static void DrawInfobox()
         {
@@ -189,17 +207,34 @@ namespace TerminalChatV1
                 Console.Write(IBasciiCenter);
                 
             }
+            resetCursor();
         }
         static void DrawMessage(Message message)
         {
             // Class created but no media to display, not testable rn
-            Console.WriteLine($"[{message.timestamp}]{message.sender}:{message.body}");
+            if(message.sender == null || message.body == null)
+            {
+                Console.WriteLine($"[00:00]Sender:Message");
+            }
+            else
+            {
+                Console.WriteLine($"[{message.timestamp.Hour}:{message.timestamp.Minute}]{message.sender}:{message.body}");
+            }
+
 
 
         }
         static void DrawTabs()
         {
-
+            Console.SetCursorPosition(0, 29);
+            foreach (Tab tab in tabs)
+            {
+                DrawTab(tab);
+            }
+        }
+        static void DrawTab(Tab tab)
+        {
+            Console.Write($"{tab.name}\t\t");
         }
 
     }
