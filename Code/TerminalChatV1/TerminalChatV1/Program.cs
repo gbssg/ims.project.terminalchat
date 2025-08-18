@@ -22,7 +22,7 @@ namespace TerminalChatV1
         static string? serverIp;
         static int port;
 
-        static int boxInfocus = 0;
+        static int tabInfocus = 0;
         static int MaxCharV = 29;
         static int MaxCharH = 121;
 
@@ -71,6 +71,7 @@ namespace TerminalChatV1
 
             Debug();
             Setup();
+            KeyInputThread();
 
 
 
@@ -82,7 +83,7 @@ namespace TerminalChatV1
             //Connect();
             //KeyInputThread();
             //Chatfunction();
-            Console.ReadLine();
+            //Console.ReadLine();
 
         }
         static void Connect()
@@ -92,6 +93,25 @@ namespace TerminalChatV1
 
             port = 5000;
         }
+        static void Debug()
+        {
+            Console.Write("Enter Debug?(j/n)");
+            string a = Console.ReadLine();
+            if (a.ToLower().Equals("j")) 
+            {
+                // system diagnostics / debug
+
+                Console.WriteLine(Process.GetCurrentProcess());
+                Console.WriteLine(boxes);
+                Console.WriteLine(tabs);
+                Console.WriteLine(tabs.ElementAt(0));
+
+                Console.Write("Press any key to continue normal Start.");
+                string exitDebug = Console.ReadLine();
+            }
+            Console.Clear();
+        }
+
         static void Chatfunction()
         {
             try
@@ -146,7 +166,7 @@ namespace TerminalChatV1
                 {
 
                     ConsoleKey Key = Console.ReadKey(intercept:true).Key;
-                    Console.Write(Key.ToString());
+                    //Console.Write(Key.ToString());
                     switch (Key)
                     {
                         case ConsoleKey.Tab:
@@ -160,27 +180,68 @@ namespace TerminalChatV1
             });
             keyInput.Start();
         }
-        static void Debug()
-        {
-            Console.Write("Enter Debug?(j/n)");
-            string a = Console.ReadLine();
-            if (a.ToLower().Equals("j")) 
-            {
-                // system diagnostics / debug
-
-                Console.WriteLine(Process.GetCurrentProcess());
-                Console.WriteLine(boxes);
-                Console.WriteLine(tabs);
-
-                Console.Write("Press any key to continue normal Start.");
-                string exitDebug = Console.ReadLine();
-            }
-            Console.Clear();
-        }
         static void NextTab()
-        {
-            if (boxInfocus >= 4) boxInfocus = 0;
-            else ++boxInfocus;
+        {           //8, 10, 15, 11, 15, 8, 15, 13, 15, 4
+            switch (tabInfocus)
+            {
+                case 0:
+                    Console.SetCursorPosition(110, 29);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    DrawTab(tabs.ElementAt(4)); 
+                    Console.SetCursorPosition(8, 29);
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    DrawTab(tabs.ElementAt(0));
+                    break;
+
+                case 1:
+                    Console.SetCursorPosition(8, 29);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    DrawTab(tabs.ElementAt(0));
+                    Console.SetCursorPosition(33, 29);
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    DrawTab(tabs.ElementAt(1));
+                    break;
+
+                case 2:
+                    Console.SetCursorPosition(33, 29);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    DrawTab(tabs.ElementAt(1));
+                    Console.SetCursorPosition(59, 29);
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    DrawTab(tabs.ElementAt(2));
+                    break;
+
+                case 3:
+                    Console.SetCursorPosition(59, 29);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    DrawTab(tabs.ElementAt(2));
+                    Console.SetCursorPosition(82, 29);
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    DrawTab(tabs.ElementAt(3));
+                    break;
+
+                case 4:
+                    Console.SetCursorPosition(82, 29);
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    DrawTab(tabs.ElementAt(3));
+                    Console.SetCursorPosition(110, 29);
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    DrawTab(tabs.ElementAt(4));
+                    break;
+            }
+            Console.BackgroundColor = ConsoleColor.Black;
+
+
+            if (tabInfocus >= 4)
+            {
+                tabInfocus = 0;
+            }
+            else ++tabInfocus;
+            
+
+            
+            int size = tabs[tabInfocus].size;
+            //Console.SetCursorPosition(8 + size, 29);
             //Console.WriteLine(tabs[boxInfocus]);
 
         }
@@ -242,15 +303,19 @@ namespace TerminalChatV1
         }
         static void DrawTabs()
         {
+            // Tabs spaceing is 8, tab1, 15, tab2, 15, tab3, 15, tab4, 15, tab5
             Console.SetCursorPosition(0, 29);
+            int x = 8;
             foreach (Tab tab in tabs)
-            {
+            { 
+                Console.SetCursorPosition(x, 29);
                 DrawTab(tab);
+                x += 15 + tab.size;
             }
         }
         static void DrawTab(Tab tab)
         {
-            Console.Write($"\t{tab.name}\t");
+            Console.Write($"{tab.name}");
         }
     }
 }
