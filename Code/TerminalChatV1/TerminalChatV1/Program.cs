@@ -1,21 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
+using TerminalChatClient;
 
 namespace TerminalChatV1
 {
-    public class Box
-    {
-        public int id;
-        public string? name { get; set; }
-        public bool infocus { get; set; }
-    }
-    public class Tab
-    {
-        public int id; 
-        public string? name { get; set; }
-        public bool selected { get; set; }
-    }
+
+
     //Placeholder Message Class
     public class Message
     {
@@ -49,34 +41,44 @@ namespace TerminalChatV1
             Box messageBox = new Box();
             boxes.Add(messageBox);
 
-            Console.WriteLine(boxes);
 
             // Create Tabs and Tablist
             Tab serverList = new Tab();
             serverList.name = "Serverlist";
+            serverList.size = 10;
             tabs.Add(serverList);
 
             Tab channelList = new Tab();
             channelList.name = "Channellist";
+            channelList.size = 11;
             tabs.Add(channelList);
 
             Tab userlist = new Tab();
             userlist.name = "Userlist";
+            userlist.size = 8;
             tabs.Add(userlist);
 
             Tab notifications = new Tab();
             notifications.name = "Notifications";
+            notifications.size = 13;
             tabs.Add(notifications);
 
             Tab exit = new Tab();
             exit.name = "exit";
+            exit.size = 4;
             tabs.Add(exit);
 
-            Console.WriteLine(tabs);
-            Thread.Sleep(1000);
-            Console.Clear();
+
+            Debug();
             Setup();
-            // TODO: create Tabs
+
+
+
+            // TODO: 
+            //    - make Tabs functional
+            //    - seperate function into classes, cleanup main function
+            //
+
             //Connect();
             //KeyInputThread();
             //Chatfunction();
@@ -158,6 +160,23 @@ namespace TerminalChatV1
             });
             keyInput.Start();
         }
+        static void Debug()
+        {
+            Console.Write("Enter Debug?(j/n)");
+            string a = Console.ReadLine();
+            if (a.ToLower().Equals("j")) 
+            {
+                // system diagnostics / debug
+
+                Console.WriteLine(Process.GetCurrentProcess());
+                Console.WriteLine(boxes);
+                Console.WriteLine(tabs);
+
+                Console.Write("Press any key to continue normal Start.");
+                string exitDebug = Console.ReadLine();
+            }
+            Console.Clear();
+        }
         static void NextTab()
         {
             if (boxInfocus >= 4) boxInfocus = 0;
@@ -220,9 +239,6 @@ namespace TerminalChatV1
             {
                 Console.WriteLine($"[{message.timestamp.Hour}:{message.timestamp.Minute}]{message.sender}:{message.body}");
             }
-
-
-
         }
         static void DrawTabs()
         {
@@ -234,8 +250,7 @@ namespace TerminalChatV1
         }
         static void DrawTab(Tab tab)
         {
-            Console.Write($"{tab.name}\t\t");
+            Console.Write($"\t{tab.name}\t");
         }
-
     }
 }
