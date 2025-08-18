@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Net.Sockets;
+using System.Runtime.CompilerServices;
 using System.Text;
 using TerminalChatClient;
 
@@ -22,7 +23,7 @@ namespace TerminalChatV1
         static string? serverIp;
         static int port;
 
-        static int tabInfocus = 0;
+        static int tabInfocus;
         static int MaxCharV = 29;
         static int MaxCharH = 121;
 
@@ -72,6 +73,7 @@ namespace TerminalChatV1
             Debug();
             Setup();
             KeyInputThread();
+
 
 
 
@@ -165,13 +167,19 @@ namespace TerminalChatV1
                 while (true)
                 {
 
-                    ConsoleKey Key = Console.ReadKey(intercept:true).Key;
-                    //Console.Write(Key.ToString());
-                    switch (Key)
+                    var keyInfo = Console.ReadKey(intercept:true);
+                    switch (keyInfo.Key)
                     {
-                        case ConsoleKey.Tab:
-                            NextTab();
-                                break;
+                        case ConsoleKey.RightArrow:
+                            //Console.WriteLine("pgup");
+                            SwitchTab(1);
+                            break;
+
+                        case ConsoleKey.LeftArrow:
+                            //Console.WriteLine("pgdn");
+                            SwitchTab(0);
+                            break;
+
                     }
 
 
@@ -180,50 +188,44 @@ namespace TerminalChatV1
             });
             keyInput.Start();
         }
-        static void NextTab()
+        static void SwitchTab(int uod)
         {           //8, 10, 15, 11, 15, 8, 15, 13, 15, 4
+            if(uod == 1) tabInfocus++;
+            if(uod == 0) tabInfocus--;
+
+            if (tabInfocus > 4) tabInfocus = 0;
+            if (tabInfocus < 0) tabInfocus = 4;
+
+            Console.BackgroundColor = ConsoleColor.Black;
+            DrawTabs();
+
             switch (tabInfocus)
             {
                 case 0:
-                    Console.SetCursorPosition(110, 29);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    DrawTab(tabs.ElementAt(4)); 
                     Console.SetCursorPosition(8, 29);
                     Console.BackgroundColor = ConsoleColor.Blue;
                     DrawTab(tabs.ElementAt(0));
                     break;
 
                 case 1:
-                    Console.SetCursorPosition(8, 29);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    DrawTab(tabs.ElementAt(0));
                     Console.SetCursorPosition(33, 29);
                     Console.BackgroundColor = ConsoleColor.Blue;
                     DrawTab(tabs.ElementAt(1));
                     break;
 
                 case 2:
-                    Console.SetCursorPosition(33, 29);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    DrawTab(tabs.ElementAt(1));
                     Console.SetCursorPosition(59, 29);
                     Console.BackgroundColor = ConsoleColor.Blue;
                     DrawTab(tabs.ElementAt(2));
                     break;
 
                 case 3:
-                    Console.SetCursorPosition(59, 29);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    DrawTab(tabs.ElementAt(2));
                     Console.SetCursorPosition(82, 29);
                     Console.BackgroundColor = ConsoleColor.Blue;
                     DrawTab(tabs.ElementAt(3));
                     break;
 
                 case 4:
-                    Console.SetCursorPosition(82, 29);
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    DrawTab(tabs.ElementAt(3));
                     Console.SetCursorPosition(110, 29);
                     Console.BackgroundColor = ConsoleColor.Blue;
                     DrawTab(tabs.ElementAt(4));
@@ -232,17 +234,6 @@ namespace TerminalChatV1
             Console.BackgroundColor = ConsoleColor.Black;
 
 
-            if (tabInfocus >= 4)
-            {
-                tabInfocus = 0;
-            }
-            else ++tabInfocus;
-            
-
-            
-            int size = tabs[tabInfocus].size;
-            //Console.SetCursorPosition(8 + size, 29);
-            //Console.WriteLine(tabs[boxInfocus]);
 
         }
         static void Setup()
