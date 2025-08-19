@@ -15,4 +15,5 @@ namespace TerminalChatClient
         public int size { get; set; }
         public bool selected { get; set; }
     }
+
 }

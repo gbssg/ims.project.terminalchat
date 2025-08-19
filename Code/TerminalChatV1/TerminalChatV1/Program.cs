@@ -23,7 +23,7 @@ namespace TerminalChatV1
         static string? serverIp;
         static int port;
 
-        static int tabInfocus;
+        static int tabInfocus = 0;
         static int MaxCharV = 29;
         static int MaxCharH = 121;
 
@@ -180,18 +180,58 @@ namespace TerminalChatV1
                             SwitchTab(0);
                             break;
 
+                        case ConsoleKey.Enter:
+                            SelectTab();
+                            break;
+                            
+
+
                     }
 
 
-                    // if Key is ... then ... aktion bsp swithch tabs.
+                    // if Key is ... then ... aktion bsp switch tabs.
                 }
             });
             keyInput.Start();
         }
+
+        static void Setup()
+        {
+            User user = User.SetUser();
+            Message message = new Message();
+            DrawTextbox();
+            DrawTabs();
+            DrawInfobox();
+            DrawMessage(message);
+
+        }
+        static void SelectTab()
+        {
+
+            Console.SetCursorPosition(0, 0);
+            switch (tabInfocus)
+            {
+                case 0:
+                    Console.WriteLine("1");
+                    break;
+                case 1:
+                    Console.WriteLine("2");
+                    break;
+                case 2:
+                    Console.WriteLine("3");
+                    break;
+                case 3:
+                    Console.WriteLine("4");
+                    break;
+                case 4:
+                    Console.WriteLine("5");
+                    break;
+            }
+        }
         static void SwitchTab(int uod)
         {           //8, 10, 15, 11, 15, 8, 15, 13, 15, 4
-            if(uod == 1) tabInfocus++;
-            if(uod == 0) tabInfocus--;
+            if (uod == 1) tabInfocus++;
+            if (uod == 0) tabInfocus--;
 
             if (tabInfocus > 4) tabInfocus = 0;
             if (tabInfocus < 0) tabInfocus = 4;
@@ -232,18 +272,6 @@ namespace TerminalChatV1
                     break;
             }
             Console.BackgroundColor = ConsoleColor.Black;
-
-
-
-        }
-        static void Setup()
-        {
-            Message message = new Message();
-            DrawTextbox();
-            DrawTabs();
-            DrawInfobox();
-            DrawMessage(message);
-
         }
         static void resetCursor()
         {
