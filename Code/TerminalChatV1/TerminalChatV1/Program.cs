@@ -103,6 +103,7 @@ namespace TerminalChatV1
             {
                 // system diagnostics / debug
 
+                Console.WriteLine();
                 Console.WriteLine(Process.GetCurrentProcess());
                 Console.WriteLine(boxes);
                 Console.WriteLine(tabs);
@@ -197,7 +198,7 @@ namespace TerminalChatV1
 
         static void Setup()
         {
-            User user = User.SetUser();
+            User.SetUser();
             Message message = new Message();
             DrawTextbox();
             DrawTabs();
