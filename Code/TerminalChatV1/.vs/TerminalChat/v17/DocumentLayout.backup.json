@@ -50,8 +50,7 @@
               "RelativeToolTip": "TerminalChatV1\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T11:39:28.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T11:39:28.846Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "TerminalChatV1\\Data\\user.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-19T11:07:49.012Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T11:07:49.012Z"
             },
             {
               "$type": "Document",
@@ -72,9 +70,9 @@
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatV1\\User.cs",
               "RelativeDocumentMoniker": "TerminalChatV1\\User.cs",
-              "ToolTip": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatV1\\User.cs",
-              "RelativeToolTip": "TerminalChatV1\\User.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAuwB0AAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatV1\\User.cs*",
+              "RelativeToolTip": "TerminalChatV1\\User.cs*",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAUwCEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-19T08:37:53.813Z",
               "EditorCaption": ""
@@ -89,8 +87,7 @@
               "RelativeToolTip": "TerminalChatV1\\Data\\servers.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-19T08:36:49.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T08:36:49.59Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "RelativeToolTip": "TerminalChatV1\\Box.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T06:32:04.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T06:32:04.916Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "TerminalChatV1\\Tab.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T06:31:02.76Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T06:31:02.76Z"
             },
             {
               "$type": "Document",
@@ -128,8 +123,7 @@
               "RelativeToolTip": "TerminalChatV1\\Packages.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T11:17:05.257Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-17T11:17:05.257Z"
             }
           ]
         }

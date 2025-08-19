@@ -10,8 +10,8 @@ namespace TerminalChatClient
 {
     internal class User
     {
-        public string? name {  get; set; }
-        public DateTime creationTime;
+        public string? name { get; set; }
+        public DateTime creationTime { get; set; }
     
         public static User SetUser()
         {
@@ -22,28 +22,42 @@ namespace TerminalChatClient
             string filename = "user.json";
             string path = Path.Combine(appdata, parentfoldername, foldername, filename);
 
-            var user = new User // create Userclass to serialize into json
-            {
-                name = "placeholder",
-                creationTime = DateTime.Now
-            };
+                var user = new User // create Userclass to serialize into json
+                {
+                    name = "placeholder",
+                    creationTime = DateTime.Now,
+                };
 
-            Console.WriteLine("Please Set a Username");
-            do
-            {
-                user.name = Console.ReadLine();
-                Console.Clear();
-                if (user.name == string.Empty)
-                    Console.WriteLine("Please set a Username");
-            } 
-            while (string.IsNullOrWhiteSpace(user.name));
+            // User selection menue: if there is a user saved disply it in a list
+            user = JsonSerializer.Deserialize<User>(File.ReadAllText(path));
+            
+            //debug: writes out json string w. name and date of creation
+            //Console.WriteLine(user.name);
 
-            string jsonString = JsonSerializer.Serialize(user);
+            if (user.name == null) 
+            { 
+
+                Console.WriteLine("Please Set a Username");
+                do
+                {
+                    user.name = Console.ReadLine();
+                    Console.Clear();
+                    if (user.name == string.Empty)
+                        Console.WriteLine("Please set a Username");
+                } 
+                while (string.IsNullOrWhiteSpace(user.name));
+            
+            
+            }
+            
+            var options = new JsonSerializerOptions { WriteIndented = true }; // makes json pretty
+            string jsonString = JsonSerializer.Serialize(user, options); // writes json string
+
             if (Directory.Exists(Path.Combine(appdata, parentfoldername)) && File.Exists(path))
             // if the appdata directory, datafolder or file doesn't exist it will create new ones, if they exist the json will get saved into the file.
             {
                 Console.WriteLine(jsonString);
-                File.WriteAllText(path, jsonString);
+                File.WriteAllText(path, jsonString); // writes json string into designated file
             }
             else
             {
@@ -62,9 +76,8 @@ namespace TerminalChatClient
             }
 
 
-                //Console.WriteLine($"User saved at: {path}");
             Console.ReadKey();
-
+            Console.Clear();
             return user;
         }
     }
