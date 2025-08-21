@@ -23,5 +23,9 @@ namespace TerminalChatClient
             public int chat_id { get; set; }
             public string message { get; set; }
         }
+        public class Serverinformation : Package
+        {
+
+        }
     }
 }
