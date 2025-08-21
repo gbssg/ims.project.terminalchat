@@ -49,25 +49,40 @@ namespace TerminalChatClient
             
             
             }
-            
+            else if (user.name != null)
+            {
+                Console.WriteLine($"Do you want to keep {user.name} as you username? (y/n)");
+                char a = Console.ReadKey(intercept:true).KeyChar;
+                if (a == 'n')
+                {
+                    Console.WriteLine("Please Set a Username");
+                    do
+                    {
+                        user.name = Console.ReadLine();
+                        Console.Clear();
+                        if (user.name == string.Empty)
+                            Console.WriteLine("Please set a Username");
+                    }
+                    while (string.IsNullOrWhiteSpace(user.name));
+                }
+            }
+
             var options = new JsonSerializerOptions { WriteIndented = true }; // makes json pretty
             string jsonString = JsonSerializer.Serialize(user, options); // writes json string
 
             if (Directory.Exists(Path.Combine(appdata, parentfoldername)) && File.Exists(path))
             // if the appdata directory, datafolder or file doesn't exist it will create new ones, if they exist the json will get saved into the file.
             {
-                Console.WriteLine(jsonString);
+                //Console.WriteLine(jsonString);
                 File.WriteAllText(path, jsonString); // writes json string into designated file
             }
             else
             {
                 try
                 {
-
                     Directory.CreateDirectory(Path.Combine(appdata, parentfoldername, foldername));
                     File.Create(path).Close();
                     Console.WriteLine(path);
-
                 }
                 catch (Exception e) 
                 {
@@ -76,8 +91,8 @@ namespace TerminalChatClient
             }
 
 
-            Console.ReadKey();
-            Console.Clear();
+            //Console.ReadKey();
+            //Console.Clear();
             return user;
         }
     }
