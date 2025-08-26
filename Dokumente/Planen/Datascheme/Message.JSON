@@ -19,9 +19,6 @@
                     "messageSender": {
                         "type": "object",
                         "properties": {
-                            "userId": {
-                                "type": "integer"
-                            },
                             "userName": {
                                 "type": "string"
                             },
@@ -31,7 +28,6 @@
                             }
                         },
                         "required": [
-                            "userId",
                             "userName"
                         ]
                     },
