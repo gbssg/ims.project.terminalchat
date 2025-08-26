@@ -1,0 +1,70 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "servers": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "serverName": {
+                        "type": "string"
+                    },
+                    "serverIP": {
+                        "type": "string"
+                    },
+                    "channels": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "channelId": {
+                                    "type": "integer"
+                                },
+                                "channelName": {
+                                    "type": "string"
+                                },
+                                "channelDescription": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "channelId",
+                                "channelName"
+                            ]
+                        }
+                    },
+                    "users": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "userId": {
+                                    "type": "integer"
+                                },
+                                "userName": {
+                                    "type": "string"
+                                },
+                                "userJoinDate": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            },
+                            "required": [
+                                "userId",
+                                "userName"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "serverName",
+                    "serverIP"
+                ]
+            }
+        }
+    },
+    "required": [
+        "servers"
+    ]
+}

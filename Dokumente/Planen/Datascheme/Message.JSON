@@ -1,0 +1,67 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+        "serverId": {
+            "type": "integer"
+        },
+        "channelId": {
+            "type": "integer"
+        },
+        "messages": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "messageId": {
+                        "type": "integer"
+                    },
+                    "messageSender": {
+                        "type": "object",
+                        "properties": {
+                            "userId": {
+                                "type": "integer"
+                            },
+                            "userName": {
+                                "type": "string"
+                            },
+                            "userJoinDate": {
+                                "type": "string",
+                                "format": "date-time"
+                            }
+                        },
+                        "required": [
+                            "userId",
+                            "userName"
+                        ]
+                    },
+                    "receiver": {
+                        "type": "object",
+                        "properties": {
+                            "channelId": {
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "channelId"
+                        ]
+                    },
+                    "body": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "messageId",
+                    "messageSender",
+                    "receiver",
+                    "body"
+                ]
+            }
+        }
+    },
+    "required": [
+        "serverId",
+        "channelId",
+        "messages"
+    ]
+}
