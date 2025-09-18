@@ -1,8 +1,8 @@
-# Terminal-Chat Function Doc
+# Terminal-Chat function Doc
 
 ## Content
 
-- [Terminal-Chat Function Doc](#terminal-chat-function-doc)
+- [Terminal-Chat function Doc](#terminal-chat-function-doc)
   - [Content](#content)
   - [Client](#client)
     - [Display](#display)
