@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace TerminalChatClient
-{
+{/*
     internal class User
     {
         public string? name { get; set; }
@@ -96,5 +96,6 @@ namespace TerminalChatClient
             return user;
         }
     }
+    */
 
 }

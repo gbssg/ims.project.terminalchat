@@ -64,7 +64,7 @@
               "RelativeDocumentMoniker": "TerminalChatV1\\Program.cs",
               "ToolTip": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatV1\\Program.cs",
               "RelativeToolTip": "TerminalChatV1\\Program.cs",
-              "ViewState": "AgIAAAkBAAAAAAAAAAAYwB0BAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAJQAAAAAAAAAAAAawKUAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T08:48:49.67Z",
               "EditorCaption": ""
@@ -79,8 +79,7 @@
               "RelativeToolTip": "TerminalChatV1\\Packages.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T08:48:48.998Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-21T08:48:48.998Z"
             },
             {
               "$type": "Document",
@@ -92,8 +91,7 @@
               "RelativeToolTip": "TerminalChatV1\\Box.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T08:48:48.282Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-21T08:48:48.282Z"
             }
           ]
         }
