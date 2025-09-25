@@ -38,6 +38,7 @@ namespace TerminalChatClient
     }
     internal class Server : ISendable
     {
+        public int serverIndex { get; set; }
         public string serverIp { get; set; }
         public string serverName {  get; set; }
         public List<Channel> channels { get; set; } = new List<Channel>();
