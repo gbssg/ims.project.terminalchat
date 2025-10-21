@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 
 namespace TerminalChatClient
 {
-    internal class User 
+    public class User 
     {
         public string username { get; set; }
         public DateTime UserJoinDate { get; set; }
 
     }
-    internal class Channel 
+    public class Channel 
     {
         public int channelId { get; set; }
         public string ChannelName { get; set; }
         public string channelDescription { get; set; }
 
     }
-    internal class Message : ISendable
+    public class Message : ISendable
     {
         public string serverIndex { get; set; }
         public string serverIp { get; set; }
@@ -36,7 +36,7 @@ namespace TerminalChatClient
 
         }
     }
-    internal class Server : ISendable
+    public class Server : ISendable
     {
         public int serverIndex { get; set; }
         public string serverIp { get; set; }
@@ -49,7 +49,7 @@ namespace TerminalChatClient
             return JsonSerializer.Serialize(this, options); // writes json string
         }
     }
-    internal class ServerList : ISendable
+    public class ServerList : ISendable
     {
         public List<Server> servers { get; set; } = new List<Server>();
 

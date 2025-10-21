@@ -7,32 +7,74 @@ using System.Threading.Tasks;
 
 namespace TerminalChatClient
 {
-    internal class Filemanager
+    public class Filemanager
     {
-        public string appPath {  get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        public string directoryPath {  get; set; } 
-        public string userPath { get; set; }
-        public string serverProfilePath { get; set; }
-        public string messagePath { get; set; }
+        public string appData {  get; } = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        public string directoryPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI");
+        public string userPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI" + "user.json");
+        public string serverListPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI" + "serverlist.json");
         public void SetupAppDir()
         {
-            
+            // checks if appData directory exists, if not creates one
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            // checks if user file exists, if not creates one
+            if (!File.Exists(userPath))
+            {
+                using (File.Create(userPath)) { }
+            }
+
+            // checks if serverlist file exists, if not creates one
+            if (!File.Exists(serverListPath))
+            {
+                using (File.Create(serverListPath)) { }
+            }
         }
-        public void CreateServerProfile()
+        public void CreateServerProfile(Server server)
         {
+            int index = server.serverIndex;
+            string filename = "Serverprofile_" + index;
+            string profilePath = Path.Combine(directoryPath + filename);
+
+            // creating server profile directory
+            Directory.CreateDirectory(profilePath);
+
+            // creating profile specific datafiles
+            using (File.Create(Path.Combine(profilePath, "serverprofile.json"))) { }
+            using (File.Create(Path.Combine(profilePath, "messagelog.json"))) { }
 
         }
-        public string GetLocalUserPath()
+        public string GetServerProfilePath(Server server) 
         {
-            return "to be added";
+            string filename = "Serverprofile_" + server.serverIndex;
+            string path = Path.Combine(directoryPath, filename, "serverprofile.json");
+
+            if (Path.Exists(path))
+            {
+                return path;
+            }
+            else
+            {
+                return "File not found!";
+            }
+
         }
-        public string GetServerProfilePath(int serverIndex) 
+        public string GetMessagelogPath(Server server)
         {
-            return "to be added";
-        }
-        public string GetMessagelogPath(int channelId)
-        {
-            return "to be added";
+            string filename = "Serverprofile_" + server.serverIndex;
+            string path = Path.Combine(directoryPath, filename, "massagelog.json");
+
+            if (Path.Exists(path))
+            {
+                return path;
+            }
+            else
+            {
+                return "File not found!";
+            }
         }
     }
 }

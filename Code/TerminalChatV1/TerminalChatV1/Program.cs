@@ -1,8 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Net.Sockets;
-using System.Runtime.CompilerServices;
 using System.Text;
+using TerminalChatClient;
 using TerminalChatClient;
 
 namespace TerminalChatV1
@@ -34,6 +33,8 @@ namespace TerminalChatV1
 
         static void Main()
         {
+            Filemanager fm = new();
+
             // Create Boxes and Boxlist
             Box textBox = new Box();
             boxes.Add(textBox);
@@ -77,7 +78,7 @@ namespace TerminalChatV1
             Setup();
             KeyInputThread();
 
-
+            
         }
         static void Connect()
         {
@@ -86,7 +87,7 @@ namespace TerminalChatV1
 
             port = 5000;
         }
-        static void Debug()
+        public void Debug()
         {
             Console.Write("Enter Debug?(j/n)");
             string a = Console.ReadLine();
@@ -97,6 +98,8 @@ namespace TerminalChatV1
                 Console.WriteLine();
                 Console.WriteLine(Process.GetCurrentProcess());
                 Console.WriteLine(boxes);
+                Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+                Console.WriteLine(Filemanager.);
                 //Console.WriteLine(tabs);
                 //Console.WriteLine(tabs.ElementAt(0));
 
