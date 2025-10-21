@@ -33,7 +33,6 @@ namespace TerminalChatV1
 
         static void Main()
         {
-            Filemanager fm = new();
 
             // Create Boxes and Boxlist
             Box textBox = new Box();
@@ -45,36 +44,10 @@ namespace TerminalChatV1
             Box messageBox = new Box();
             boxes.Add(messageBox);
 
-            /*
-            // Create Tabs and Tablist
-            Tab serverList = new Tab();
-            serverList.name = "Serverlist";
-            serverList.size = 10;
-            tabs.Add(serverList);
-
-            Tab channelList = new Tab();
-            channelList.name = "Channellist";
-            channelList.size = 11;
-            tabs.Add(channelList);
-
-            Tab userlist = new Tab();
-            userlist.name = "Userlist";
-            userlist.size = 8;
-            tabs.Add(userlist);
-
-            Tab notifications = new Tab();
-            notifications.name = "Notifications";
-            notifications.size = 13;
-            tabs.Add(notifications);
-
-            Tab exit = new Tab();
-            exit.name = "exit";
-            exit.size = 4;
-            tabs.Add(exit);
-            */
 
 
-            Debug();
+
+            //Debug();
             Setup();
             KeyInputThread();
 
@@ -97,9 +70,6 @@ namespace TerminalChatV1
 
                 Console.WriteLine();
                 Console.WriteLine(Process.GetCurrentProcess());
-                Console.WriteLine(boxes);
-                Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
-                Console.WriteLine(Filemanager.);
                 //Console.WriteLine(tabs);
                 //Console.WriteLine(tabs.ElementAt(0));
 
@@ -194,6 +164,7 @@ namespace TerminalChatV1
         {
             //User.SetUser();
             Message message = new Message();
+            ServerList.Instance = new();
             DrawTextbox();
             //DrawTabs();
             DrawInfobox();
