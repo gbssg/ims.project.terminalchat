@@ -2,7 +2,6 @@
 using System.Net.Sockets;
 using System.Text;
 using TerminalChatClient;
-using TerminalChatClient;
 
 namespace TerminalChatV1
 {
@@ -17,6 +16,7 @@ namespace TerminalChatV1
         public DateTime timestamp;
         public string? body;
     }
+
     internal class Program
     {
         static string? serverIp;

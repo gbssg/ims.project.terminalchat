@@ -1,0 +1,10 @@
+User/AppData/Local/TerminalChatCLI/
+├── user.json
+├── serverlist.json // includes path data to serverprofiles and messages
+├── Serverprofile_<UUID>/
+│   ├── serverprofile.json
+│   └── messagelog.json
+├── Serverprofile_<UUID>/
+│   ├── serverprofile.json
+│   └── messagelog.json
+└── ...

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using TerminalChatClient;
 
 namespace TerminalChatClient
 {
@@ -61,6 +62,7 @@ namespace TerminalChatClient
             return JsonSerializer.Serialize(this, options); // writes json string
         }
     }
+    
     // singelton, one list only
     public class ServerList
     {

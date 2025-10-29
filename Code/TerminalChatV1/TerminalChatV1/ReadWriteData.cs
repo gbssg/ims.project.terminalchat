@@ -10,9 +10,6 @@ namespace TerminalChatClient
 {
     public class ReadWriteData
     {
-        public List<Server> serverList { get; set; }
-        public List<User> userList { get; set; }
-        public List<Message> messageLog { get; set; }
         public Filemanager fm { get; set; } = new Filemanager();
 
         public void AddServer(Server server)
@@ -28,20 +25,28 @@ namespace TerminalChatClient
             // serialize obect into json string
             string jsonText = JsonSerializer.Serialize(ServerList.servers);
 
-            File.WriteAllText(fm.GetServerlistPath(), jsonText);
+            File.WriteAllText(fm.serverListPath, jsonText);
         }
 
+        /*
+        public void AddServerProfile(Server server)
+        {
+
+        }
+        */
         // read local saved data
+
         public ServerList GetServerList()
         {
             // get json string with Filemanager
-            string jsonText = File.ReadAllText(fm.GetServerlistPath());
+            string jsonText = File.ReadAllText(fm.serverListPath);
 
             // deserialize json string into serverlist object
             ServerList serverList = JsonSerializer.Deserialize<ServerList>(jsonText);
 
             return serverList;
         }
+
         public Server GetServerProfile(Guid serverUUID)
         {
             // get json string with Filemanager
@@ -52,6 +57,16 @@ namespace TerminalChatClient
 
             return server;
         }
+
+        public SetupUserList GetSetupUserlist()
+        {
+            string jsonText = File.ReadAllText(fm.userPath);
+
+            SetupUserList users = JsonSerializer.Deserialize<SetupUserList>(jsonText);
+            
+            return users;
+        }
+
         public MessageLog GetMessageLog(Guid serverUUID)
         {
             // get json string with Filemanager

@@ -13,6 +13,7 @@ namespace TerminalChatClient
         public string directoryPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI");
         public string userPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI" + "user.json");
         public string serverListPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI" + "serverlist.json");
+
         public void SetupAppDir()
         {
             // checks if appData directory exists, if not creates one
@@ -33,6 +34,7 @@ namespace TerminalChatClient
                 using (File.Create(serverListPath)) { }
             }
         }
+
         public void CreateServerProfile(Server server)
         {
             string name = server.UUID.ToString();
@@ -76,6 +78,8 @@ namespace TerminalChatClient
                 return "File not found!";
             }
         }
+        /*
+        // redundant functions, paths are public static readonly variables
         public string GetUserPath()
         {
 
@@ -99,6 +103,7 @@ namespace TerminalChatClient
                 return "File not found!";
             }
         }
+        */
 
     }
 }
