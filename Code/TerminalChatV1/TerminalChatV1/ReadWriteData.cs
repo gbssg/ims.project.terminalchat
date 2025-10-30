@@ -12,7 +12,8 @@ namespace TerminalChatClient
     {
         public Filemanager fm { get; set; } = new Filemanager();
 
-        public void AddServer(Server server)
+        // adds or updates a server in the serverlist
+        public void UpdateServerlist(Server server)
         {
             int index = ServerList.servers.FindIndex(sv => sv.UUID == server.UUID);
             if (index != -1)
@@ -25,8 +26,12 @@ namespace TerminalChatClient
             // serialize obect into json string
             string jsonText = JsonSerializer.Serialize(ServerList.servers);
 
+            // overrides previous 
             File.WriteAllText(fm.serverListPath, jsonText);
         }
+
+
+
 
         /*
         public void AddServerProfile(Server server)
@@ -36,7 +41,7 @@ namespace TerminalChatClient
         */
         // read local saved data
 
-        public ServerList GetServerList()
+        public ServerList ReadServerList()
         {
             // get json string with Filemanager
             string jsonText = File.ReadAllText(fm.serverListPath);
@@ -47,7 +52,7 @@ namespace TerminalChatClient
             return serverList;
         }
 
-        public Server GetServerProfile(Guid serverUUID)
+        public Server ReadServerProfile(Guid serverUUID)
         {
             // get json string with Filemanager
             string jsonText = File.ReadAllText(fm.GetServerProfilePath(serverUUID));
