@@ -2,7 +2,6 @@
 {
     public class FileManager
     {
-        public string appData {  get; } = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         public string directoryPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI");
         public string setupUserPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI" + "user.json");
         public string serverListPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI" + "serverlist.json");
@@ -28,9 +27,9 @@
             }
         }
 
-        public void CreateServerProfile(Server server)
+        public void CreateServerProfile(Guid server)
         {
-            string name = server.UUID.ToString();
+            string name = server.ToString();
             string filename = "Serverprofile_" + name;
             string profilePath = Path.Combine(directoryPath + filename);
 
@@ -47,14 +46,11 @@
             string serverprofile = "Serverprofile_" + serverUUID.ToString();
             string path = Path.Combine(directoryPath, serverprofile, "serverprofile.json");
 
-            if (Path.Exists(path))
+            if (!Path.Exists(path))
             {
-                return path;
+                CreateServerProfile(serverUUID);
             }
-            else
-            {
-                return "File not found!";
-            }
+            return path;
 
         }
         public string GetMessageLogPath(Guid serverUUID)
@@ -71,32 +67,5 @@
                 return "File not found!";
             }
         }
-        /*
-        // redundant functions, paths are public static readonly variables
-        public string GetUserPath()
-        {
-
-            if (Path.Exists(userPath))
-            {
-                return userPath;
-            }
-            else
-            {
-                return "File not found!";
-            }
-        }
-        public string GetServerlistPath()
-        {
-            if (Path.Exists(serverListPath))
-            {
-                return serverListPath;
-            }
-            else
-            {
-                return "File not found!";
-            }
-        }
-        */
-
     }
 }

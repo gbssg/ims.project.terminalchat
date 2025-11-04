@@ -12,7 +12,6 @@ namespace TerminalChatClient
     public class ReadWriteData
     {
         public FileManager fm { get; set; } = new FileManager();
-        public SetupUserList setupUserlist { get; set; } = new SetupUserList();
 
         // adds or updates a server in the serverlist
         public void UpdateServerlist(Server server)
@@ -60,23 +59,6 @@ namespace TerminalChatClient
 
             return server;
         }
-        public void UpdateSetupUserlist(SetupUser _setupUser)
-        {
-            // get index of setupUser if 
-            int index = setupUserlist.users.IndexOf(_setupUser);
-
-            if (index != -1) 
-            {
-                setupUserlist.users.Add(_setupUser);
-            }
-            else
-            {
-                setupUserlist.users[index] = _setupUser;
-            }
-            string jsonText = JsonSerializer.Serialize(setupUserlist);
-
-            File.WriteAllText(fm.setupUserPath, jsonText);
-        }
 
         public SetupUserList ReadSetupUserlist()
         {
@@ -85,6 +67,37 @@ namespace TerminalChatClient
             SetupUserList users = JsonSerializer.Deserialize<SetupUserList>(jsonText);
             
             return users;
+        }
+
+        public void UpdateSetupUserlist(SetupUser _setupUser)
+        {
+            SetupUserList setupUserList = ReadSetupUserlist();
+            
+            // get index of setupUser if 
+            int index = setupUserList.users.IndexOf(_setupUser);
+
+            if (index != -1) 
+            {
+                setupUserList.users.Add(_setupUser);
+            }
+            else
+            {
+                setupUserList.users[index] = _setupUser;
+            }
+            string jsonText = JsonSerializer.Serialize(setupUserList);
+
+            File.WriteAllText(fm.setupUserPath, jsonText);
+        }
+
+        public MessageLog ReadMessageLog(Guid serverUUID)
+        {
+            // get json string with Filemanager
+            string jsonText = File.ReadAllText(fm.GetMessageLogPath(serverUUID));
+
+            // deserialize json string into server object
+            MessageLog messageLog = JsonSerializer.Deserialize<MessageLog>(jsonText);
+
+            return messageLog;
         }
 
         public void UpdateMessagelog(Message _message)
@@ -100,17 +113,6 @@ namespace TerminalChatClient
 
             // writes the json text onto the path provided by the fm.GetMessageLogPath(_message.ServerUUID)
             File.WriteAllText(fm.GetMessageLogPath(_message.ServerUUID),jsonText);
-        }
-
-        public MessageLog ReadMessageLog(Guid serverUUID)
-        {
-            // get json string with Filemanager
-            string jsonText = File.ReadAllText(fm.GetMessageLogPath(serverUUID));
-
-            // deserialize json string into server object
-            MessageLog messageLog = JsonSerializer.Deserialize<MessageLog>(jsonText);
-
-            return messageLog;
         }
     }
 }
