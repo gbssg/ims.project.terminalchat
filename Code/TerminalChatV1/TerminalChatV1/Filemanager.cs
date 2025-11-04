@@ -1,17 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TerminalChatClient
+﻿namespace TerminalChatClient
 {
-    public class Filemanager
+    public class FileManager
     {
         public string appData {  get; } = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         public string directoryPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI");
-        public string userPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI" + "user.json");
+        public string setupUserPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI" + "user.json");
         public string serverListPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "TerminalChatCLI" + "serverlist.json");
 
         public void SetupAppDir()
@@ -23,9 +16,9 @@ namespace TerminalChatClient
             }
 
             // checks if user file exists, if not creates one
-            if (!File.Exists(userPath))
+            if (!File.Exists(setupUserPath))
             {
-                using (File.Create(userPath)) { }
+                using (File.Create(setupUserPath)) { }
             }
 
             // checks if serverlist file exists, if not creates one
