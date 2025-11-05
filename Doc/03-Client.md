@@ -42,7 +42,6 @@ functions aren't implemented yet, they're written in future tense.
 ### FileManager
 ---
 
-
 #### `string directoryPath`
 
 **Description:**

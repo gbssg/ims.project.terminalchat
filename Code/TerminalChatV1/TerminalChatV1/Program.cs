@@ -19,6 +19,10 @@ namespace TerminalChatV1
 
     internal class Program
     {
+       
+
+
+
         static string? serverIp;
         static int port;
         static int windowWidth = 150;
@@ -33,6 +37,8 @@ namespace TerminalChatV1
 
         static void Main()
         {
+            Setup setupFR = new();
+            FileManager fileManager = new();
 
             // Create Boxes and Boxlist
             Box textBox = new Box();
@@ -48,6 +54,8 @@ namespace TerminalChatV1
 
 
             //Debug();
+            fileManager.SetupAppDir();
+            setupFR.UserSetupPrompt();
             Setup();
             KeyInputThread();
 
