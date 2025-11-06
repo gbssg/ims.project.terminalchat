@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using TerminalChatClient;
 
 namespace TerminalChatV1
@@ -39,6 +40,7 @@ namespace TerminalChatV1
         {
             Setup setupFR = new();
             FileManager fileManager = new();
+            ReadWriteData rwd = new();
 
             // Create Boxes and Boxlist
             Box textBox = new Box();
@@ -54,8 +56,23 @@ namespace TerminalChatV1
 
 
             //Debug();
+            Console.WriteLine(File.ReadAllText(fileManager.setupUserPath));
+            Console.ReadKey();
             fileManager.SetupAppDir();
             setupFR.UserSetupPrompt();
+
+            /*
+            SetupUserList sul = new();
+            SetupUser sUser = new SetupUser();
+            sUser.name = "testingTom0";
+            sul.users.Add(sUser);
+            string jsonText = JsonSerializer.Serialize(sul.users);
+
+            File.WriteAllText(fileManager.setupUserPath, jsonText);
+            */
+
+
+
             Setup();
             KeyInputThread();
 

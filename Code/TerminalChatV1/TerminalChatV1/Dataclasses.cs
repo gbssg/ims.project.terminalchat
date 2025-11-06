@@ -14,7 +14,7 @@ namespace TerminalChatClient
     }
     public class SetupUserList
     {
-        public List<SetupUser> users { get; set; } = new List<SetupUser>();
+        public List<SetupUser> setupUsers { get; set; } = new List<SetupUser>();
     }
     public class User 
     {
