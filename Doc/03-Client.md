@@ -24,12 +24,16 @@
       - [`SetupUserList ReadSetupUserlist() {}`](#setupuserlist-readsetupuserlist-)
       - [`MessageLog ReadMessageLog(Guid serverUUID) {}`](#messagelog-readmessagelogguid-serveruuid-)
       - [`void UpdateMessagelog(Message _message) {}`](#void-updatemessagelogmessage-_message-)
+    - [Setup](#setup)
+      - [`ReadWriteData readWriteData`](#readwritedata-readwritedata)
+      - [`public void UserSetupPrompt() {}`](#public-void-usersetupprompt-)
+      - [`public void CreateSetupUser() {}`](#public-void-createsetupuser-)
     - [Dataclasses](#dataclasses)
       - [Message: `ToJson()`](#message-tojson)
       - [`function name (parameters) -> return `](#function-name-parameters---return-)
     - [CLI-Controller](#cli-controller)
   - [Server](#server)
-    - [Setup](#setup)
+    - [Setup](#setup-1)
     - [SV-Controller](#sv-controller)
 
 -----
@@ -202,9 +206,9 @@ This function will be used by the display process to visualize the internal stru
 This function uses the [`readSetupUserlist()`](#setupuserlist-readsetupuserlist-) to acess existing setupusers so they can be updated/repalced or added if they do not already exist.
 
 **Parameters:**    
-| Name          | Type          | Description                                              |
-| ------------- | ------------- | -------------------------------------------------------- |
-| \_setupUser\_ | SetupUserList | The setupUser object to be added or updated in the list. |
+| Name        | Type          | Description                                              |
+| ----------- | ------------- | -------------------------------------------------------- |
+| \_setupUser | SetupUserList | The setupUser object to be added or updated in the list. |
 
 **Usage:**  
 This function will be used after the user selected their alias to save/update the SetupUserList.
@@ -257,14 +261,40 @@ This function adds the message specified in the parameter into the respective me
 This function is used to add messages to the messagelog, this will be used in the process of recieving messages and storeing them into the local files.
 
 
+### Setup
+
+#### `ReadWriteData readWriteData`
+
+**Description:**  
+An instance of the [`ReadWriteData`](#readwritedata) Class to use the [`UpdateUserList()`](#void-updatesetupuserlistsetupuser-_setupuser-) to write the newly selected user into the local storage.
 
 
+#### `public void UserSetupPrompt() {}`
+
+**Description:**  
+This void function prompts the user on startup which alias thy want to use for the current session, the options are to use the most recent username or to create a new user.
+
+![executed function as demonstration](dem-usersetupptompt.png)
+
+**Usage:**  
+This is only once used on stardup to get the users alias/username, to further use it to sign messages and user activity on servers.
+
+
+#### `public void CreateSetupUser() {}`
+
+**Description:**  
+This function is called by [`UserSetupPrompt()`](#public-void-usersetupprompt-) and prompts the user to enter a new username, the username cant be shorter then zero and longer then 32 characters.
+
+![executed function as demonstration](dem-createsetupuser.png)
+
+**Usage:**  
+This function manages the prompt and the input resulting from the prompt. The entered name gets processed by [ReadWriteData.UpdateSetupUserList()](#void-updatesetupuserlistsetupuser-_setupuser-).s
 
 ### Dataclasses
 ---
 #### Message: `ToJson()` 
 This is true for the `Message`, `Server` and `ServerList` classes
-**Description:**  
+**Description:**    
 Parameter less funtion to Serialize the message object into a formatted Json String.
 
 **Parameters:**  
@@ -278,7 +308,7 @@ Parameter less funtion to Serialize the message object into a formatted Json Str
 | ------ | ----------------------------------------- |
 | string | returns object as a formatted Json string |
 
-**Usage:**
+**Usage:**  
 This function is used by the storage management to get the json string to save the data into files.
 
 ---

@@ -65,31 +65,35 @@ namespace TerminalChatClient
 
 		public void UpdateSetupUserlist(SetupUser _setupUser)
 		{
-			SetupUserList setupUserList = ReadSetupUserlist();
+			LocalUsers setupUserList = ReadSetupUserlist();
 			
-			// get index of setupUser if 
-			int index = setupUserList.setupUsers.IndexOf(_setupUser);
-			int highIndex = setupUserList.setupUsers.Count;
-
-			if (index != -1) 
-			{
-				setupUserList.setupUsers.Add(_setupUser);
-			}
-			else
-			{
-				setupUserList.setupUsers[highIndex >= 5 ? 0 : highIndex] = _setupUser;
-			}
+			// only the most recent user gets saved, will be configurable in future version
+			setupUserList.SetupUsers[0] = _setupUser;
 
 			var opt = new JsonSerializerOptions { WriteIndented = true };
 			string jsonText = JsonSerializer.Serialize(setupUserList, opt);
 
 			File.WriteAllText(fm.setupUserPath, jsonText);
 		}
-		public SetupUserList ReadSetupUserlist()
+
+		// for testing purposes only
+		public void OverrideSetupUserList(SetupUser _setupUser)
+		{
+			LocalUsers setupUserList = new();
+
+            setupUserList.SetupUsers.Add(_setupUser);
+
+            var opt = new JsonSerializerOptions { WriteIndented = true };
+            string jsonText = JsonSerializer.Serialize(setupUserList, opt);
+
+            File.WriteAllText(fm.setupUserPath, jsonText);
+        }
+
+		public LocalUsers ReadSetupUserlist()
 		{
 			string jsonText = File.ReadAllText(fm.setupUserPath);
 
-			SetupUserList users = JsonSerializer.Deserialize<SetupUserList>(jsonText);
+			LocalUsers users = JsonSerializer.Deserialize<LocalUsers>(jsonText);
 			
 			return users;
 		}
@@ -111,7 +115,7 @@ namespace TerminalChatClient
 			MessageLog ml = ReadMessageLog(_message.ServerUUID);
 
 			// adds current message to the messages list
-			ml.messages.Add(_message);
+			ml.Messages.Add(_message);
 
 			// serializses the ml object into json
 			var opt = new JsonSerializerOptions { WriteIndented = true };

@@ -20,9 +20,6 @@ namespace TerminalChatV1
 
     internal class Program
     {
-       
-
-
 
         static string? serverIp;
         static int port;
@@ -38,9 +35,9 @@ namespace TerminalChatV1
 
         static void Main()
         {
-            Setup setupFR = new();
+            SetupLocalUser setupLocalUser = new();
             FileManager fileManager = new();
-            ReadWriteData rwd = new();
+            ReadWriteData readWriteData = new();
 
             // Create Boxes and Boxlist
             Box textBox = new Box();
@@ -52,31 +49,20 @@ namespace TerminalChatV1
             Box messageBox = new Box();
             boxes.Add(messageBox);
 
-
-
+            SetupUser slu = new();
+            slu.Name = "test";
 
             //Debug();
+            //readWriteData.OverrideSetupUserList(slu);
             Console.WriteLine(File.ReadAllText(fileManager.setupUserPath));
+            //readWriteData.ReadSetupUserlist();
             Console.ReadKey();
             fileManager.SetupAppDir();
-            setupFR.UserSetupPrompt();
-
-            /*
-            SetupUserList sul = new();
-            SetupUser sUser = new SetupUser();
-            sUser.name = "testingTom0";
-            sul.users.Add(sUser);
-            string jsonText = JsonSerializer.Serialize(sul.users);
-
-            File.WriteAllText(fileManager.setupUserPath, jsonText);
-            */
-
-
+            setupLocalUser.UserSetupPrompt();
 
             Setup();
             KeyInputThread();
-
-            
+  
         }
         static void Connect()
         {
