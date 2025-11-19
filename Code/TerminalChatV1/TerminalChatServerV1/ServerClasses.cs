@@ -43,6 +43,7 @@ namespace TerminalChatServer
                 Channels.Add(_channel);
             }
         }
+
         public string GetLocalIpAddress()
         {
             var host = Dns.GetHostEntry(Dns.GetHostName());
