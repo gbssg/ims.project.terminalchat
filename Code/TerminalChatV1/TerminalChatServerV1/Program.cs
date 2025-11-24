@@ -6,6 +6,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using TerminalChatServer;
 
 namespace TerminalChatServerV1
 {
@@ -13,16 +14,19 @@ namespace TerminalChatServerV1
     {
         static List<TcpClient> clients = new List<TcpClient>();
         static object lockObj = new object();
+        static ServerSetup setup = new ServerSetup();
+        static dataCrud datacrud = new dataCrud();
 
         static void Main()
         {
-            // Lokale IP-Adresse des Servers herausfinden
-            string localIP = GetLocalIPAddress();
-            int port = 5000;
+            datacrud.SetupAppDir();
+            datacrud.AddServer(setup.ServerSetupPrompt());
+            var currentServer = datacrud.GetServers().Servers[0];
+            
 
-            TcpListener listener = new TcpListener(IPAddress.Parse(localIP), port);
+            TcpListener listener = new TcpListener(IPAddress.Parse(currentServer.Ip), currentServer.Port);
             listener.Start();
-            Console.WriteLine($"Server gestartet auf {localIP}:{port}. Warte auf Verbindungen...");
+            Console.WriteLine($"Server gestartet auf {currentServer.Ip}:{currentServer.Port}. Warte auf Verbindungen...");
 
             while (true)
             {
@@ -95,31 +99,5 @@ namespace TerminalChatServerV1
                 }
             }
         }
-        static string GetLocalIPAddress()
-        {
-            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
-            {
-                if (ni.OperationalStatus != OperationalStatus.Up ||
-                    ni.NetworkInterfaceType == NetworkInterfaceType.Loopback ||
-                    ni.Description.ToLower().Contains("vmware") ||
-                    ni.Description.ToLower().Contains("virtual"))
-                {
-                    continue;
-                }
-
-                var ipProps = ni.GetIPProperties();
-
-                foreach (var ip in ipProps.UnicastAddresses)
-                {
-                    if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
-                    {
-                        return ip.Address.ToString();
-                    }
-                }
-            }
-
-            throw new Exception("Keine gültige physische Netzwerkverbindung gefunden!");
-        }
-
     }
 }

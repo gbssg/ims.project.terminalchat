@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Channels;
-using System.Threading.Tasks;
-
+using System.Xml.Linq;
 
 namespace TerminalChatServer
 {
@@ -17,21 +11,36 @@ namespace TerminalChatServer
     public class Server
     {
         public string Ip { get; set; } 
-        public string Port { get; set; }
+        public int Port { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public Guid UUID { get; set; } = Guid.CreateVersion7();
-        public List<Channel> Channels { get; set; } 
-
-        public Server(string _name, string _description, string _port , List<Channel> _channels) 
+        public List<Channel> Channels { get; set; } = new();
+        public Server()
+        {
+            this.Ip = GetLocalIpAddress();
+            this.Port = 5000;
+            this.Name = "Standard";
+            this.Description = "Standard";
+            Channel channel = new Channel("Test", "Test");
+            this.Channels.Add(channel);
+        }
+        public Server(string _name, string _description, int _port , Channel _channel) 
         { 
             this.Ip = GetLocalIpAddress();
             this.Port = _port;
             this.Name = _name;
             this.Description = _description;
+            this.Channels.Add(_channel);
+        }
+        public Server(string _name, string _description, int _port, List<Channel> _channels)
+        {
+            this.Ip = GetLocalIpAddress();
+            this.Port = _port;
+            this.Name = _name; 
+            this.Description = _description;
             this.Channels = _channels;
         }
-
         public void UpdateChannel(Channel _channel)
         {
             int index = Channels.FindIndex(ch => ch.UUID == _channel.UUID);
@@ -71,3 +80,4 @@ namespace TerminalChatServer
 
     }
 }
+    

@@ -1,0 +1,1 @@
+{"Servers":[{"Ip":"169.254.91.103","Port":5000,"Name":"test","Description":"descr","UUID":"019aa07b-427d-726f-85a8-b1984721cae2","Channels":[{"Name":"channel1","Description":"descTest","UUID":"019aa07b-427c-7e39-870d-a75e09fd721d"}]}]}

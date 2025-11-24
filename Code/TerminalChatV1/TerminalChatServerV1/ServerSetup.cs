@@ -1,36 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace TerminalChatServer
 {
     public class ServerSetup
     {
+        static dataCrud dc = new dataCrud();
         public Server ServerSetupPrompt()
         {
-            //MVP: Simple Userinterface nothing fancy
-            Console.WriteLine("Enter a server name:");
-            string serverName = Console.ReadLine();
+            bool loop = true;
+            string serverJson;
+            do
+            {
+                loop = false;
+                // Enter Server-Json to create a server
+                Console.WriteLine("Enter server-json:");
+                serverJson = Console.ReadLine();
 
-            Console.WriteLine("Enter a server description:");
-            string serverDescription = Console.ReadLine();
+                try
+                {
 
-            Console.WriteLine("Enter the server port:");
-            string serverPort = Console.ReadLine();
+                    Server deserializeTest = JsonSerializer.Deserialize<Server>(serverJson);
+                    dc.AddServer(deserializeTest);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Could not read Json, wrong format, try again:");
+                    loop = true;
+                }
 
-            Console.WriteLine($"Enter a channel name:");
-            string channelName = Console.ReadLine();
+            } while (loop);
 
-            Console.WriteLine($"Enter a channel description:");
-            string channelDescription = Console.ReadLine();
-
-            Channel c1 = new Channel(channelName, channelDescription);
-            List<Channel> channels = new();
-            channels.Add(c1);
-            Server _server = new Server(serverName, serverDescription, serverPort, channels);
-            return _server;
+            return JsonSerializer.Deserialize<Server>(serverJson);
+            
+            
         }
     }
 }
