@@ -1,6 +1,6 @@
 # TerminalChat
 ## About
-Terminal Chat is a lightweight, dicord/IRC like, self-hostable chat setup that runs both server and client right in your terminal. It’s minimal and a bit old-school by design, mixing the feel of classic command-line tools with just enough modern features to make it useful.
+Terminal Chat is a lightweight, discord/IRC like, self-hostable chat setup that runs both server and client right in your terminal. It’s minimal and a bit old-school by design, mixing the feel of classic command-line tools with just enough modern features to make it useful.
 
 Messages aren’t stored on the server at all only on the client side, saved in simple JSON files and directories. That means no databases to set up or manage which eats up your storage.
 
