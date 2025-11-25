@@ -79,39 +79,37 @@ namespace TerminalChatServer
             return channels;
         }
         // takes max and min expected integer value and prompts the user to enter a number, and returns it if fits the parameters descriptions.
-        public int ReadInt(int expectedMin, int expectedMax)
+        static int ReadInt(int expectedMin, int expectedMax)
         {
-            bool loop = true;
+            bool wholeLoop = true;
             int convertedInt;
-
+            string input;
             do
             {
-                string? input = Console.ReadLine();
-
+                input = Console.ReadLine();
+                // check if string can convert to int32
                 try
                 {
-                    Convert.ToInt32(input);
-                    convertedInt = Convert.ToInt32(input);
-                
-                    if (convertedInt > expectedMax)
+                    int testconv = Convert.ToInt32(input);
+                    Console.WriteLine("succeded!");
+                    if (testconv != null && testconv>=expectedMin && testconv<=expectedMax)
                     {
-                        Console.WriteLine($"Please enter an integer smaller then {expectedMax}");
-                    } 
-                    else if (convertedInt < expectedMin)
+                        wholeLoop = false;
+                    }
+                    else
                     {
-                        Console.WriteLine($"Please enter an integer bigger than {expectedMin}");
-                    }else
-                    {
-                        loop = false;
+                        Console.WriteLine($"Please enter a Number between {expectedMin} and {expectedMax}");
                     }
                 }
+
                 catch
                 {
-                    Console.WriteLine($"Please enter an integer bigger than {expectedMin} but smaller then {expectedMax}");
-                }
-                convertedInt = Convert.ToInt32(input);
 
-            } while (loop);
+                    Console.WriteLine($"Please enter a Number between {expectedMin} and {expectedMax}");
+                }
+
+            } while (wholeLoop);
+            convertedInt = Convert.ToInt32(input);
             return convertedInt;
         }
         //takes min and max length of a string and prompts the user to enter one, returns the string if it fits the parameters description
