@@ -28,6 +28,13 @@ namespace TerminalChatServer
         public ServerList GetServers()
         {
             string jsonText = File.ReadAllText(serverListPath);
+            if (jsonText.Length < 1)
+            {
+                ServerList sltemp = new();
+                var opt = new JsonSerializerOptions { WriteIndented = true };
+                string jsonText2 = JsonSerializer.Serialize(sltemp);
+                return sltemp;
+            }
 
             ServerList serverList = JsonSerializer.Deserialize<ServerList>(jsonText);
 

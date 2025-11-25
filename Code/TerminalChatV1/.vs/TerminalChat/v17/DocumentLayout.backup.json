@@ -3,6 +3,13 @@
   "WorkspaceRootPath": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F1CB6014-9C5A-4DA0-B21B-AEF15CF3D226}|TerminalChatServerV1\\TerminalChatServer.csproj|c:\\users\\yvesj\\source\\ims.project.terminalchat\\code\\terminalchatv1\\terminalchatserverv1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1CB6014-9C5A-4DA0-B21B-AEF15CF3D226}|TerminalChatServerV1\\TerminalChatServer.csproj|solutionrelative:terminalchatserverv1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\yvesj\\AppData\\Local\\SourceServer\\3980f0d02d66665b92d19ed612da6eca3996bce7920e68741ddf9e74afc7ad0a\\src\\runtime\\src\\libraries\\System.Private.CoreLib\\src\\System\\Collections\\Generic\\List.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F1CB6014-9C5A-4DA0-B21B-AEF15CF3D226}|TerminalChatServerV1\\TerminalChatServer.csproj|c:\\users\\yvesj\\source\\ims.project.terminalchat\\code\\terminalchatv1\\terminalchatserverv1\\datacrud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F1CB6014-9C5A-4DA0-B21B-AEF15CF3D226}|TerminalChatServerV1\\TerminalChatServer.csproj|solutionrelative:terminalchatserverv1\\datacrud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +20,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F1CB6014-9C5A-4DA0-B21B-AEF15CF3D226}|TerminalChatServerV1\\TerminalChatServer.csproj|c:\\users\\yvesj\\source\\ims.project.terminalchat\\code\\terminalchatv1\\terminalchatserverv1\\serverclasses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F1CB6014-9C5A-4DA0-B21B-AEF15CF3D226}|TerminalChatServerV1\\TerminalChatServer.csproj|solutionrelative:terminalchatserverv1\\serverclasses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1CB6014-9C5A-4DA0-B21B-AEF15CF3D226}|TerminalChatServerV1\\TerminalChatServer.csproj|c:\\users\\yvesj\\source\\ims.project.terminalchat\\code\\terminalchatv1\\terminalchatserverv1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1CB6014-9C5A-4DA0-B21B-AEF15CF3D226}|TerminalChatServerV1\\TerminalChatServer.csproj|solutionrelative:terminalchatserverv1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,26 +37,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "List.cs",
+              "DocumentMoniker": "C:\\Users\\yvesj\\AppData\\Local\\SourceServer\\3980f0d02d66665b92d19ed612da6eca3996bce7920e68741ddf9e74afc7ad0a\\src\\runtime\\src\\libraries\\System.Private.CoreLib\\src\\System\\Collections\\Generic\\List.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\3980f0d02d66665b92d19ed612da6eca3996bce7920e68741ddf9e74afc7ad0a\\src\\runtime\\src\\libraries\\System.Private.CoreLib\\src\\System\\Collections\\Generic\\List.cs",
+              "ToolTip": "C:\\Users\\yvesj\\AppData\\Local\\SourceServer\\3980f0d02d66665b92d19ed612da6eca3996bce7920e68741ddf9e74afc7ad0a\\src\\runtime\\src\\libraries\\System.Private.CoreLib\\src\\System\\Collections\\Generic\\List.cs [Read Only]",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Local\\SourceServer\\3980f0d02d66665b92d19ed612da6eca3996bce7920e68741ddf9e74afc7ad0a\\src\\runtime\\src\\libraries\\System.Private.CoreLib\\src\\System\\Collections\\Generic\\List.cs [Read Only]",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAAwJUAAAAUAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T14:44:11.381Z",
+              "EditorCaption": " [Read Only]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "dataCrud.cs",
               "DocumentMoniker": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatServerV1\\dataCrud.cs",
               "RelativeDocumentMoniker": "TerminalChatServerV1\\dataCrud.cs",
               "ToolTip": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatServerV1\\dataCrud.cs",
               "RelativeToolTip": "TerminalChatServerV1\\dataCrud.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T12:16:02.414Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ServerClasses.cs",
               "DocumentMoniker": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatServerV1\\ServerClasses.cs",
               "RelativeDocumentMoniker": "TerminalChatServerV1\\ServerClasses.cs",
               "ToolTip": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatServerV1\\ServerClasses.cs",
               "RelativeToolTip": "TerminalChatServerV1\\ServerClasses.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA1wBkAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T12:05:23.876Z",
               "EditorCaption": ""
@@ -62,24 +78,24 @@
         },
         {
           "DockedWidth": 227,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ServerSetup.cs",
               "DocumentMoniker": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatServerV1\\ServerSetup.cs",
               "RelativeDocumentMoniker": "TerminalChatServerV1\\ServerSetup.cs",
               "ToolTip": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatServerV1\\ServerSetup.cs",
               "RelativeToolTip": "TerminalChatServerV1\\ServerSetup.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T14:55:07.939Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\yvesj\\source\\ims.project.terminalchat\\Code\\TerminalChatV1\\TerminalChatServerV1\\Program.cs",
               "RelativeDocumentMoniker": "TerminalChatServerV1\\Program.cs",

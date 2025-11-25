@@ -4,7 +4,7 @@ namespace TerminalChatServer
 {
     public class ServerSetup
     {
-        static dataCrud dc = new dataCrud();
+        static dataCrud dc = new dataCrud(); 
         public Server ServerSetupPromptByJSON()
         {
             bool loop = true;
@@ -34,12 +34,49 @@ namespace TerminalChatServer
             
             
         }
-        public void ServerSetupPrompt()
+        public Server ServerSetupPrompt()
         {
-            string enteredName = Console.ReadLine();
-            string enteredDescription = Console.ReadLine();
+            Server server = new();
+            Console.WriteLine("Enter the server's name:");
+            string? enteredName = ReadString(64, 8);
+            Console.WriteLine("Enter the servers description, no linebreakes:");
+            string? enteredDescription = ReadString(128, 8);
+            Console.WriteLine("Enter Server Port: (make shure the port isn't in use by any other service, check in your firewall settings)");
+            int enteredPort = ReadInt(1, 65536);
+            Console.WriteLine("Enter amount of channels: (max: 10, the more you choose the more you have to configure)");
             int amountOfChannels = ReadInt(0, 10);
-
+            if (amountOfChannels > 1) 
+            {
+                server.Name = enteredName;
+                server.Description = enteredDescription;
+                server.Port = enteredPort;
+                server.Channels = SetupChannelRecursive(amountOfChannels);
+            } else
+            {
+                server.Name = enteredName;
+                server.Description = enteredDescription;
+                server.Port = enteredPort;
+                server.Channels.Add(SetupChannel());
+            }
+            return server;
+        }
+        public Channel SetupChannel()
+        {
+            Console.WriteLine("Enter the channel's name:");
+            string? enteredName = ReadString(64, 8);
+            Console.WriteLine("Enter the channel's description, no linebreakes:");
+            string? enteredDescription = ReadString(128, 8);
+            Channel c = new Channel(enteredName, enteredDescription);
+            return c;
+        }
+        public List<Channel> SetupChannelRecursive(int amountOfChannels)
+        {
+            List<Channel> channels = new List<Channel>();
+            for (int i = 0; i < amountOfChannels; i++)
+            {
+                channels.Add(SetupChannel());
+            }
+            return channels;
         }
         // takes max and min expected integer value and prompts the user to enter a number, and returns it if fits the parameters descriptions.
         public int ReadInt(int expectedMin, int expectedMax)

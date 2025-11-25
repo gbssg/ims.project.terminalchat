@@ -20,9 +20,10 @@ namespace TerminalChatServerV1
         static void Main()
         {
             datacrud.SetupAppDir();
-            datacrud.AddServer(setup.ServerSetupPromptByJSON());
-            var currentServer = datacrud.GetServers().Servers[0];
-            
+            datacrud.AddServer(setup.ServerSetupPrompt());
+            //Console.WriteLine(datacrud.GetServers().Servers.Count);
+            //var currentServer = datacrud.GetServers().Servers[0];
+            /*
 
             TcpListener listener = new TcpListener(IPAddress.Parse(currentServer.Ip), currentServer.Port);
             listener.Start();
@@ -40,6 +41,7 @@ namespace TerminalChatServerV1
                 Thread clientThread = new Thread(HandleClient);
                 clientThread.Start(client);
             }
+            */
         }
 
         static void HandleClient(object obj)

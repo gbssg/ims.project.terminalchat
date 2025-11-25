@@ -12,8 +12,8 @@ namespace TerminalChatServer
     {
         public string Ip { get; set; } 
         public int Port { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
         public Guid UUID { get; set; } = Guid.CreateVersion7();
         public List<Channel> Channels { get; set; } = new();
         public Server()
