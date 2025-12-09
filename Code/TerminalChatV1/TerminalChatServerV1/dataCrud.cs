@@ -25,17 +25,19 @@ namespace TerminalChatServer
                 using (File.Create(serverListPath)) { };
             }
         }
+
         public ServerList GetServers()
         {
             string jsonText = File.ReadAllText(serverListPath);
-            if (jsonText.Length < 1)
+            /*
+            if (jsonText.Length == null)
             {
                 ServerList sltemp = new();
                 var opt = new JsonSerializerOptions { WriteIndented = true };
-                string jsonText2 = JsonSerializer.Serialize(sltemp);
+                string jsonText2 = JsonSerializer.Serialize(sltemp, opt);
                 return sltemp;
             }
-
+            */
             ServerList serverList = JsonSerializer.Deserialize<ServerList>(jsonText);
 
             return serverList;
@@ -44,20 +46,23 @@ namespace TerminalChatServer
         public void AddServer(Server _server)
         {
             ServerList serverList = GetServers();
+            //Console.WriteLine(serverList.ToString());
             serverList.Servers.Add(_server);
+            //Console.WriteLine(serverList.Servers);
 
             var opt = new JsonSerializerOptions { WriteIndented = true };
-            string jsonText = JsonSerializer.Serialize(serverList);
-
+            string jsonText = JsonSerializer.Serialize(serverList, opt);
+            //Console.Write(jsonText);
             File.WriteAllText(serverListPath, jsonText);
         }
+
         public void DeleteServer(Server _server)
         {
             ServerList serverList = GetServers();
             serverList.Servers.Remove(_server);
 
             var opt = new JsonSerializerOptions { WriteIndented = true };
-            string jsonText = JsonSerializer.Serialize(serverList);
+            string jsonText = JsonSerializer.Serialize(serverList, opt);
 
             File.WriteAllText(serverListPath, jsonText);
         }
@@ -77,10 +82,9 @@ namespace TerminalChatServer
             }
 
             var opt = new JsonSerializerOptions { WriteIndented = true };
-            string jsonText = JsonSerializer.Serialize(serverList);
+            string jsonText = JsonSerializer.Serialize(serverList, opt);
 
             File.WriteAllText(serverListPath, jsonText);
-
         }
         public Server GetServer(Guid _UUID)
         {

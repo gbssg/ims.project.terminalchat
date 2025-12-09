@@ -31,12 +31,11 @@ namespace TerminalChatServer
             } while (loop);
 
             return JsonSerializer.Deserialize<Server>(serverJson);
-            
-            
         }
+
         public Server ServerSetupPrompt()
         {
-            Server server = new();
+            Server server = new Server();
             Console.WriteLine("Enter the server's name:");
             string? enteredName = ReadString(64, 8);
             Console.WriteLine("Enter the servers description, no linebreakes:");
@@ -60,6 +59,7 @@ namespace TerminalChatServer
             }
             return server;
         }
+
         public Channel SetupChannel()
         {
             Console.WriteLine("Enter the channel's name:");
@@ -69,6 +69,7 @@ namespace TerminalChatServer
             Channel c = new Channel(enteredName, enteredDescription);
             return c;
         }
+
         public List<Channel> SetupChannelRecursive(int amountOfChannels)
         {
             List<Channel> channels = new List<Channel>();
@@ -78,19 +79,20 @@ namespace TerminalChatServer
             }
             return channels;
         }
+
         // takes max and min expected integer value and prompts the user to enter a number, and returns it if fits the parameters descriptions.
         static int ReadInt(int expectedMin, int expectedMax)
         {
             bool wholeLoop = true;
             int convertedInt;
-            string input;
+            string? input;
             do
             {
                 input = Console.ReadLine();
                 // check if string can convert to int32
                 try
                 {
-                    int testconv = Convert.ToInt32(input);
+                    int? testconv = Convert.ToInt32(input);
                     Console.WriteLine("succeded!");
                     if (testconv != null && testconv>=expectedMin && testconv<=expectedMax)
                     {
@@ -101,7 +103,6 @@ namespace TerminalChatServer
                         Console.WriteLine($"Please enter a Number between {expectedMin} and {expectedMax}");
                     }
                 }
-
                 catch
                 {
 
@@ -112,11 +113,12 @@ namespace TerminalChatServer
             convertedInt = Convert.ToInt32(input);
             return convertedInt;
         }
+
         //takes min and max length of a string and prompts the user to enter one, returns the string if it fits the parameters description
         public string ReadString(int maxLength, int minLength)
         {
             bool loop = true;
-            string input;
+            string? input;
 
             do
             {

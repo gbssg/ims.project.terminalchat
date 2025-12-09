@@ -21,7 +21,7 @@ namespace TerminalChatServerV1
         {
             datacrud.SetupAppDir();
             datacrud.AddServer(setup.ServerSetupPrompt());
-            //Console.WriteLine(datacrud.GetServers().Servers.Count);
+            Console.WriteLine(datacrud.GetServers().Servers.Count);
             //var currentServer = datacrud.GetServers().Servers[0];
             /*
 
