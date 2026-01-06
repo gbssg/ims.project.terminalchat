@@ -22,7 +22,6 @@ namespace TerminalChatV1
         static int MaxCharV = 29;
         static int MaxCharH = 121;
 
-        static List<Box> boxes = new List<Box>();
         //static List<Tab> tabs = new List<Tab>();
 
         static void Main()
@@ -31,15 +30,6 @@ namespace TerminalChatV1
             FileManager fileManager = new();
             ReadWriteData readWriteData = new();
 
-            // Create Boxes and Boxlist
-            Box textBox = new Box();
-            boxes.Add(textBox);
-
-            Box infoBox = new Box();
-            boxes.Add(infoBox);
-            
-            Box messageBox = new Box();
-            boxes.Add(messageBox);
 
             SetupUser slu = new();
             slu.Name = "test";
