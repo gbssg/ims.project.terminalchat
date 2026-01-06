@@ -15,12 +15,6 @@ namespace TerminalChatV1
 
         static string? serverIp;
         static int port;
-        static int windowWidth = 150;
-        static int windowHeight = 40;
-
-        static int tabInfocus = 0;
-        static int MaxCharV = 29;
-        static int MaxCharH = 121;
 
         //static List<Tab> tabs = new List<Tab>();
 
@@ -29,6 +23,7 @@ namespace TerminalChatV1
             SetupLocalUser setupLocalUser = new();
             FileManager fileManager = new();
             ReadWriteData readWriteData = new();
+            ClientTcpConnection clientTcpConnection = new();
 
 
             SetupUser slu = new();
@@ -43,7 +38,9 @@ namespace TerminalChatV1
             setupLocalUser.UserSetupPrompt();
 
             Setup();
-            KeyInputThread();
+            clientTcpConnection.ListenToServer();
+
+            //KeyInputThread();
   
         }
         static void Connect()
@@ -56,7 +53,7 @@ namespace TerminalChatV1
         public void Debug()
         {
             Console.Write("Enter Debug?(j/n)");
-            string a = Console.ReadLine();
+            string? a = Console.ReadLine();
             if (a.ToLower().Equals("j")) 
             {
                 // system diagnostics / debug
@@ -67,7 +64,7 @@ namespace TerminalChatV1
                 //Console.WriteLine(tabs.ElementAt(0));
 
                 Console.Write("Press any key to continue normal Start.");
-                string exitDebug = Console.ReadLine();
+                string? exitDebug = Console.ReadLine();
             }
             Console.Clear();
         }
@@ -118,40 +115,40 @@ namespace TerminalChatV1
                 Console.ReadLine();
             }
         }
-        static void KeyInputThread()
-        {
-            Thread keyInput = new Thread(() =>
-            {
-                while (true)
-                {
+        //static void KeyInputThread()
+        //{
+        //    Thread keyInput = new Thread(() =>
+        //    {
+        //        while (true)
+        //        {
 
-                    var keyInfo = Console.ReadKey(intercept:true);
-                    switch (keyInfo.Key)
-                    {
-                        case ConsoleKey.RightArrow:
-                            //Console.WriteLine("pgup");
-                            SwitchTab(1);
-                            break;
+        //            var keyInfo = Console.ReadKey(intercept:true);
+        //            switch (keyInfo.Key)
+        //            {
+        //                case ConsoleKey.RightArrow:
+        //                    //Console.WriteLine("pgup");
+        //                    SwitchTab(1);
+        //                    break;
 
-                        case ConsoleKey.LeftArrow:
-                            //Console.WriteLine("pgdn");
-                            SwitchTab(0);
-                            break;
+        //                case ConsoleKey.LeftArrow:
+        //                    //Console.WriteLine("pgdn");
+        //                    SwitchTab(0);
+        //                    break;
 
-                        case ConsoleKey.Enter:
-                            SelectTab();
-                            break;
+        //                case ConsoleKey.Enter:
+        //                    SelectTab();
+        //                    break;
                             
 
 
-                    }
+        //            }
 
 
-                    // if Key is ... then ... aktion bsp switch tabs.
-                }
-            });
-            keyInput.Start();
-        }
+        //            // if Key is ... then ... aktion bsp switch tabs.
+        //        }
+        //    });
+        //    keyInput.Start();
+        //}
 
         static void Setup()
         {
@@ -159,126 +156,6 @@ namespace TerminalChatV1
             Message message = new Message();
             ServerList.Instance = new();
         }
-        static void SelectTab()
-        {
-
-            Console.SetCursorPosition(0, 0);
-            switch (tabInfocus)
-            {
-                case 0:
-                    Console.WriteLine("1");
-                    break;
-                case 1:
-                    Console.WriteLine("2");
-                    break;
-                case 2:
-                    Console.WriteLine("3");
-                    break;
-                case 3:
-                    Console.WriteLine("4");
-                    break;
-                case 4:
-                    Console.WriteLine("5");
-                    break;
-            }
-        }
-        static void SwitchTab(int uod)
-        {           //8, 10, 15, 11, 15, 8, 15, 13, 15, 4
-            if (uod == 1) tabInfocus++;
-            if (uod == 0) tabInfocus--;
-
-            if (tabInfocus > 4) tabInfocus = 0;
-            if (tabInfocus < 0) tabInfocus = 4;
-
-            Console.BackgroundColor = ConsoleColor.Black;
-            //DrawTabs();
-
-            switch (tabInfocus)
-            {
-                case 0:
-                    Console.SetCursorPosition(8, 29);
-                    Console.BackgroundColor = ConsoleColor.Blue;
-                    //DrawTab(tabs.ElementAt(0));
-                    break;
-
-                case 1:
-                    Console.SetCursorPosition(33, 29);
-                    Console.BackgroundColor = ConsoleColor.Blue;
-                    //DrawTab(tabs.ElementAt(1));
-                    break;
-
-                case 2:
-                    Console.SetCursorPosition(59, 29);
-                    Console.BackgroundColor = ConsoleColor.Blue;
-                    //DrawTab(tabs.ElementAt(2));
-                    break;
-
-                case 3:
-                    Console.SetCursorPosition(82, 29);
-                    Console.BackgroundColor = ConsoleColor.Blue;
-                    //DrawTab(tabs.ElementAt(3));
-                    break;
-
-                case 4:
-                    Console.SetCursorPosition(110, 29);
-                    Console.BackgroundColor = ConsoleColor.Blue;
-                    //DrawTab(tabs.ElementAt(4));
-                    break;
-            }
-            Console.BackgroundColor = ConsoleColor.Black;
-        }
-        static void resetCursor()
-        {
-            Console.SetCursorPosition(0, 0);
-        }
-        static void DrawTextbox()
-        {
-            int TBposY = MaxCharV - 5;
-            
-            string TBascii = "╔═══════════════════════════════════════════════════════════════════════════════════════════════════╩══════════════════╣" +
-                           "\n║                                                                                                                      ║" +
-                           "\n║                                                                                                                      ║" +
-                           "\n║                                                                                                                      ║" +
-                           "\n╚══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╝";
-
-            Console.SetCursorPosition(0, TBposY);
-            Console.Write(TBascii);
-            resetCursor();
-        }
-        static void DrawInfobox()
-        {
-            int IBasciiLength = 22;
-            int IBasciiWidth = 21;
-            string IBasciiTOP = "╔══════════════════╗";
-            string IBasciiCenter = "║                  ║";
-            Console.SetCursorPosition(MaxCharH - IBasciiWidth, 0);
-            // Info box gets printed
-            Console.Write(IBasciiTOP);
-            for (int i = 0; i <= IBasciiLength; i++)
-            {
-                Console.SetCursorPosition(MaxCharH - IBasciiWidth, 1+i);
-                Console.Write(IBasciiCenter);
-                
-            }
-            resetCursor();
-        }
-        /*
-        static void DrawTabs()
-        {
-            // Tabs spaceing is 8, tab1, 15, tab2, 15, tab3, 15, tab4, 15, tab5
-            Console.SetCursorPosition(0, 29);
-            int x = 8;
-            foreach (Tab tab in tabs)
-            { 
-                Console.SetCursorPosition(x, 29);
-                DrawTab(tab);
-                x += 15 + tab.size;
-            }
-        }
-        static void DrawTab(Tab tab)
-        {
-            Console.Write($"{tab.name}");
-        }
-        */
+        
     }
 }

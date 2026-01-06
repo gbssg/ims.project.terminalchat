@@ -39,11 +39,11 @@ namespace TerminalChatServer
             Console.WriteLine("Enter the server's name:");
             string? enteredName = ReadString(64, 8);
             Console.WriteLine("Enter the servers description, no linebreakes:");
-            string? enteredDescription = ReadString(128, 8);
+            string? enteredDescription = ReadString(128, 0);
             Console.WriteLine("Enter Server Port: (make shure the port isn't in use by any other service, check in your firewall settings)");
             int enteredPort = ReadInt(1, 65536);
             Console.WriteLine("Enter amount of channels: (max: 10, the more you choose the more you have to configure)");
-            int amountOfChannels = ReadInt(0, 10);
+            int amountOfChannels = ReadInt(0, 5);
             if (amountOfChannels > 1) 
             {
                 server = new Server(enteredName, enteredDescription, enteredPort, SetupChannelRecursive(amountOfChannels));
@@ -57,9 +57,9 @@ namespace TerminalChatServer
         public Channel SetupChannel()
         {
             Console.WriteLine("Enter the channel's name:");
-            string? enteredName = ReadString(64, 8);
+            string? enteredName = ReadString(64, 2);
             Console.WriteLine("Enter the channel's description, no linebreakes:");
-            string? enteredDescription = ReadString(128, 8);
+            string? enteredDescription = ReadString(128, 0);
             Channel c = new Channel(enteredName, enteredDescription);
             return c;
         }

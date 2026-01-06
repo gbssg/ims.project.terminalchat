@@ -8,9 +8,16 @@ using TerminalChatClient;
 
 namespace TerminalChatClient
 {
+    public interface iRecivable
+    {
+    }
+    public interface iSendable
+    {
+    }
+
     public class SetupUser
     {
-        public string Name {  get; set; }
+        public string? Name {  get; set; }
     }
 
     public class LocalUsers
@@ -20,25 +27,25 @@ namespace TerminalChatClient
 
     public class User 
     {
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
         public DateTime UserJoinDate { get; set; }
     }
 
     public class Channel 
     {
         public int ChannelId { get; set; }
-        public string ChannelName { get; set; }
-        public string ChannelDescription { get; set; }
+        public string? ChannelName { get; set; }
+        public string? ChannelDescription { get; set; }
     }
 
-    public class Message
+    public class Message : iRecivable, iSendable
     {
         public Guid ServerUUID { get; }
-        public string ServerIp { get; set; }
+        public string? ServerIp { get; set; }
         public int ChannelId { get; set; }
-        public User Sender { get; set; }
+        public User? Sender { get; set; }
         public DateTime Timestamp {  get; set; }
-        public string Body { get; set; }
+        public string? Body { get; set; }
     }
 
     public class MessageLog
@@ -46,12 +53,12 @@ namespace TerminalChatClient
         public List<Message> Messages { get; set; } = new List<Message>();
     }
 
-    public class Server
+    public class Server : iRecivable
     {
         public Guid UUID { get; }
-        public string ServerIp { get; set; }
+        public string? ServerIp { get; set; }
         public int Port { get; set; }
-        public string ServerName {  get; set; }
+        public string? ServerName {  get; set; }
         public List<Channel> Channels { get; set; } = new List<Channel>();
         public List<User> Users { get; set; } = new List<User>();
     }
