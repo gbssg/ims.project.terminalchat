@@ -50,6 +50,7 @@ namespace TerminalChatClient
     {
         public Guid UUID { get; }
         public string ServerIp { get; set; }
+        public int Port { get; set; }
         public string ServerName {  get; set; }
         public List<Channel> Channels { get; set; } = new List<Channel>();
         public List<User> Users { get; set; } = new List<User>();

@@ -35,7 +35,7 @@ namespace TerminalChatServer
 
         public Server ServerSetupPrompt()
         {
-            Server server = new Server();
+            Server server;
             Console.WriteLine("Enter the server's name:");
             string? enteredName = ReadString(64, 8);
             Console.WriteLine("Enter the servers description, no linebreakes:");
@@ -46,16 +46,10 @@ namespace TerminalChatServer
             int amountOfChannels = ReadInt(0, 10);
             if (amountOfChannels > 1) 
             {
-                server.Name = enteredName;
-                server.Description = enteredDescription;
-                server.Port = enteredPort;
-                server.Channels = SetupChannelRecursive(amountOfChannels);
+                server = new Server(enteredName, enteredDescription, enteredPort, SetupChannelRecursive(amountOfChannels));
             } else
             {
-                server.Name = enteredName;
-                server.Description = enteredDescription;
-                server.Port = enteredPort;
-                server.Channels.Add(SetupChannel());
+                server = new Server(enteredName, enteredDescription, enteredPort, SetupChannel());
             }
             return server;
         }
