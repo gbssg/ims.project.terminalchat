@@ -4,7 +4,7 @@ namespace TerminalChatServer
 {
     public class ServerSetup
     {
-        static dataCrud dc = new dataCrud(); 
+        static ServerDataCrud dc = new ServerDataCrud(); 
         public Server ServerSetupPromptByJSON()
         {
             bool loop = true;

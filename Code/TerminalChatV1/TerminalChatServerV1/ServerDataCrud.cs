@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TerminalChatServer
 {
-    public class dataCrud
+    public class ServerDataCrud
     {
         public string directoryPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TerminalChatServer");
         public string serverListPath { get; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "TerminalChatServer", "servers.json");
@@ -30,7 +30,7 @@ namespace TerminalChatServer
         {
             string jsonText = File.ReadAllText(serverListPath);
             /*
-            if (jsonText.Length == null)
+            if (jsonText.Length == 0)
             {
                 ServerList sltemp = new();
                 var opt = new JsonSerializerOptions { WriteIndented = true };
@@ -42,17 +42,38 @@ namespace TerminalChatServer
 
             return serverList;
         }
+        public string GetServersAsJson()
+        {
+            string jsonText = File.ReadAllText(serverListPath);
+            /*
+            if (jsonText.Length == 0)
+            {
+                ServerList sltemp = new();
+                var opt = new JsonSerializerOptions { WriteIndented = true };
+                string jsonText2 = JsonSerializer.Serialize(sltemp, opt);
+                return sltemp;
+            }
+            */
+            return jsonText;
+        }
+
 
         public void AddServer(Server _server)
         {
             ServerList serverList = GetServers();
-            //Console.WriteLine(serverList.ToString());
-            serverList.Servers.Add(_server);
-            //Console.WriteLine(serverList.Servers);
 
             var opt = new JsonSerializerOptions { WriteIndented = true };
             string jsonText = JsonSerializer.Serialize(serverList, opt);
-            //Console.Write(jsonText);
+            Console.WriteLine(jsonText);
+            //Console.WriteLine(serverList.ToString());
+            
+            serverList.Servers.Add(_server);
+            //Console.WriteLine(serverList.Servers);
+
+            opt = new JsonSerializerOptions { WriteIndented = true };
+            jsonText = JsonSerializer.Serialize(serverList, opt);
+            
+            Console.Write(jsonText);
             File.WriteAllText(serverListPath, jsonText);
         }
 
@@ -89,7 +110,7 @@ namespace TerminalChatServer
         public Server GetServer(Guid _UUID)
         {
             ServerList serverList = GetServers();
-            int index = serverList.Servers.FindIndex(sv =>sv.UUID == _UUID);
+            int index = serverList.Servers.FindIndex(sv => sv.UUID == _UUID);
             if (index != -1)
             {
                 return serverList.Servers[index];

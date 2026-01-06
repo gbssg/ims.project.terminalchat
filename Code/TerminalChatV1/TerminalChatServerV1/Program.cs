@@ -15,11 +15,13 @@ namespace TerminalChatServerV1
         static List<TcpClient> clients = new List<TcpClient>();
         static object lockObj = new object();
         static ServerSetup setup = new ServerSetup();
-        static dataCrud datacrud = new dataCrud();
+        static ServerDataCrud datacrud = new ServerDataCrud();
 
         static void Main()
         {
             datacrud.SetupAppDir();
+            Console.WriteLine(datacrud.GetServersAsJson());
+            Console.WriteLine(datacrud.GetServers());
             datacrud.AddServer(setup.ServerSetupPrompt());
             Console.WriteLine(datacrud.GetServers().Servers.Count);
             //var currentServer = datacrud.GetServers().Servers[0];

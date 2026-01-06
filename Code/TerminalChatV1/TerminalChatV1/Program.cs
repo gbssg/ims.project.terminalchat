@@ -9,14 +9,6 @@ namespace TerminalChatV1
 
 
     //Placeholder Message Class
-    public class Message
-    {
-        public int id;
-        public string? sender;
-        public string? reciever;
-        public DateTime timestamp;
-        public string? body;
-    }
 
     internal class Program
     {
@@ -176,11 +168,6 @@ namespace TerminalChatV1
             //User.SetUser();
             Message message = new Message();
             ServerList.Instance = new();
-            DrawTextbox();
-            //DrawTabs();
-            DrawInfobox();
-            DrawMessage(message);
-
         }
         static void SelectTab()
         {
@@ -284,18 +271,6 @@ namespace TerminalChatV1
                 
             }
             resetCursor();
-        }
-        static void DrawMessage(Message message)
-        {
-            // Class created but no media to display, not testable rn
-            if(message.sender == null || message.body == null)
-            {
-                Console.WriteLine($"[00:00]Sender:Message");
-            }
-            else
-            {
-                Console.WriteLine($"[{message.timestamp.Hour}:{message.timestamp.Minute}]{message.sender}:{message.body}");
-            }
         }
         /*
         static void DrawTabs()
