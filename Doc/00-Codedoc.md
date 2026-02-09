@@ -34,27 +34,41 @@
       - [`string GetMessageLogPath(Guid serverUUID) {}`](#string-getmessagelogpathguid-serveruuid-)
     - [ReadWriteData](#readwritedata)
       - [`public void UpdateServerList`](#public-void-updateserverlist)
-      - [`public void ReadServerList`](#public-void-readserverlist)
-      - [Message: `ToJson()`](#message-tojson)
-    - [ReadWriteData](#readwritedata-1)
-      - [`Filemanager fm`](#filemanager-fm)
-      - [`void UpdateServerlist(Server server) {}`](#void-updateserverlistserver-server-)
-      - [`Serverlist ReadServerList() {}`](#serverlist-readserverlist-)
-      - [`void UpdateServerProfile(Server server) {}`](#void-updateserverprofileserver-server-)
-      - [`Server ReadServerProfile(Guid serverUUID) {}`](#server-readserverprofileguid-serveruuid-)
-      - [`void UpdateSetupUserlist(SetupUser _setupUser) {}`](#void-updatesetupuserlistsetupuser-_setupuser-)
-      - [`SetupUserList ReadSetupUserlist() {}`](#setupuserlist-readsetupuserlist-)
-      - [`MessageLog ReadMessageLog(Guid serverUUID) {}`](#messagelog-readmessagelogguid-serveruuid-)
-      - [`void UpdateMessagelog(Message _message) {}`](#void-updatemessagelogmessage-_message-)
-    - [Setup](#setup)
-      - [`ReadWriteData readWriteData`](#readwritedata-readwritedata)
-      - [`public void UserSetupPrompt() {}`](#public-void-usersetupprompt-)
-      - [`public void CreateSetupUser() {}`](#public-void-createsetupuser-)
-      - [`function name (parameters) -> return `](#function-name-parameters---return-)
-    - [CLI-Controller](#cli-controller)
-  - [Server](#server)
-    - [Setup](#setup-1)
-    - [SV-Controller](#sv-controller)
+      - [`public ServerList ReadServerList`](#public-serverlist-readserverlist)
+      - [`public void UpdateServerProfile`](#public-void-updateserverprofile)
+      - [`public Server ReadServerProfile`](#public-server-readserverprofile)
+      - [`public void UpdateSetupUserList`](#public-void-updatesetupuserlist)
+      - [`public void OverrideSetupUserList`](#public-void-overridesetupuserlist)
+      - [`public LocalUser ReadSetupUserList`](#public-localuser-readsetupuserlist)
+      - [`public MessageLog ReadMessageLog`](#public-messagelog-readmessagelog)
+      - [`public void UpdateMEssageLog`](#public-void-updatemessagelog)
+    - [SetupLocalUser](#setuplocaluser)
+      - [`public void UserSetupPrompt`](#public-void-usersetupprompt)
+      - [`public void CreateSetupUser`](#public-void-createsetupuser)
+    - [User](#user)
+    - [Server Classes](#server-classes)
+      - [`public class ServerList`](#public-class-serverlist-1)
+      - [`public class Server`](#public-class-server-1)
+        - [`public void UpdateChannel`](#public-void-updatechannel)
+        - [`public string GetLocalIpAddress`](#public-string-getlocalipaddress)
+      - [`public class Channel`](#public-class-channel-1)
+    - [ServerDataCrud](#serverdatacrud)
+      - [`public string directoryPath`](#public-string-directorypath)
+      - [`public string serverListPath`](#public-string-serverlistpath)
+      - [`public void SettupAppDir`](#public-void-settupappdir)
+      - [`public ServerList GetServers`](#public-serverlist-getservers)
+      - [`public string GetServerAsJson`](#public-string-getserverasjson)
+      - [`public void AddServer`](#public-void-addserver)
+      - [`public void DeleteServer`](#public-void-deleteserver)
+      - [`public void UpdateServer`](#public-void-updateserver)
+      - [`public Server GetServer`](#public-server-getserver)
+    - [ServerSetup](#serversetup)
+      - [`public Server ServerSetupPromptByJSON`](#public-server-serversetuppromptbyjson)
+      - [`public Server ServerSetupPrompt`](#public-server-serversetupprompt)
+      - [`public Channel SetupChannel`](#public-channel-setupchannel)
+      - [`public List<Channel> SetupChannelRecursive`](#public-listchannel-setupchannelrecursive)
+      - [`static int ReadInt`](#static-int-readint)
+      - [`public string ReadString`](#public-string-readstring)
 
 -----
 ## Remark
@@ -250,221 +264,180 @@ In theory, takes a Server as an input looks up the server by the ServerUUID and 
 **Usage:**  
 Used to eddit server profiles.
 
-#### `public void ReadServerList`
+#### `public ServerList ReadServerList`
 
-**Description:**  
-
-**Usage:**  
-
-#### Message: `ToJson()` 
-This is true for the `Message`, `Server` and `ServerList` classes
-**Description:**    
-Parameter less funtion to Serialize the message object into a formatted Json String.
-
-**Parameters:**  
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| N/A  | N/A  | N/A         |
-
-
-**Returns:**  
-| Type   | Description                               |
-| ------ | ----------------------------------------- |
-| string | returns object as a formatted Json string |
+**Description:** 
+Reads Server list from json and outputs a ServerList object. (no errorhandling implemented)
 
 **Usage:**  
-This function is used by the storage management to get the json string to save the data into files.
+Used to GET serverlist information.
 
+#### `public void UpdateServerProfile`
 
-
-### ReadWriteData
-
-
-#### `Filemanager fm`
-
-**Description:**  
-An instance of the Filemanager, `fm` to use the pathvariables and functions in tne readeWriteData class.
-
-
-#### `void UpdateServerlist(Server server) {}`
-
-**Descritpion:**  
-This is a returnless function which adds or updates a server in the serverlist, it identifys the different servers by the UUID and overrides to update or adds to the list if theres nothing to override.
-
-**Parameters:**    
-| Name   | Type   | Description                                                                                 |
-| ------ | ------ | ------------------------------------------------------------------------------------------- |
-| server | Server | an instance of a server containing all vital information about an external server instance. |
+**Description:**
+Overrides Server in server porfile based on ServerUUID. (no errorhandling implemented)
 
 **Usage:**  
-This function is used to add or alter a serverprofile in the serverlist, attention it does not alter nor create any serverprofiles or write data into them. It exists merely to update the serverlist.
+Used to UPDATE already exiting profiles.
 
-
-#### `Serverlist ReadServerList() {}`
-
-**Description:**  
-This parameterless function reads and deserializes the locally saved serverlist by calling the filemanager `fm` class variable `serverlistPath`, and outputs it as a `ServerList` object.
-
-**Returns:**  
-| Name       | Type       | Description                  |
-| ---------- | ---------- | ---------------------------- |
-| serverList | ServerList | Returns a Serverlist object. |
-
-**Usage:**  
-This function is mainly used by the `void UpdateServerlist(Server server) {}` but will also used to display saved serverprofiles in the TUI/CLI.
-
-
-#### `void UpdateServerProfile(Server server) {}`
+#### `public Server ReadServerProfile`
 
 **Description:**  
-This returnless function overrides the serverprofile by the UUID, uses the filemanagers `fm` `.GetServerProfilePath(serverUUID)`  to get the file path to override the json.
-
-**Parameters:**    
-| Name   | Type   | Description                                                                                 |
-| ------ | ------ | ------------------------------------------------------------------------------------------- |
-| server | Server | an instance of a server containing all vital information about an external server instance. |
-
-**Usage:**   
-This function is used to write serverprofiles by the UUID. 
-
-
-#### `Server ReadServerProfile(Guid serverUUID) {}`
-
-**Description:**  
-This function is used to deserialize and read the locally saved serverprofile by UUID, and returns the Server object. 
-
-**Parameters:**    
-| Name       | Type | Description                                          |
-| ---------- | ---- | ---------------------------------------------------- |
-| serverUUID | Guid | The Id of the serverprofle which has been requested. |
-
-**Returns:**  
-| Name   | Type   | Description                             |
-| ------ | ------ | --------------------------------------- |
-| server | Server | Returns by UUID selected server object. |
-
-**Usage:**  
-This function will be used by the display process to visualize the internal structure of the server (mainly channels), to be displayed in the TUI/CLI. 
-
-
-#### `void UpdateSetupUserlist(SetupUser _setupUser) {}`
-
-**Description:**  
-This function uses the [`readSetupUserlist()`](#setupuserlist-readsetupuserlist-) to acess existing setupusers so they can be updated/repalced or added if they do not already exist.
-
-**Parameters:**    
-| Name        | Type          | Description                                              |
-| ----------- | ------------- | -------------------------------------------------------- |
-| \_setupUser | SetupUserList | The setupUser object to be added or updated in the list. |
-
-**Usage:**  
-This function will be used after the user selected their alias to save/update the SetupUserList.
-
-
-#### `SetupUserList ReadSetupUserlist() {}`
-
-**Description:**  
-This parameterles function reads the setupuserlist by using the filemanager variable [`setupUserPath`](#string-setupuserpath) and deserializes the json into an object and returns that object.
-
-**Returns:**  
-| Name  | Type          | Description                                      |
-| ----- | ------------- | ------------------------------------------------ |
-| users | SetupUserList | Returns the SetupUserList that is saved Locally. |
-
-**Usage:**  
-This function will be used to choose from a already existing users aka aliases to ose on servers on programm startup.
-
-
-#### `MessageLog ReadMessageLog(Guid serverUUID) {}`
-
-**Description:**  
-This function uses the UUID given in the parameter to get the Path to the messsagelog and deserializes the json into a messagelog object and returns the messagelog object.  
-
-**Parameters:**    
-| Name       | Type | Description                                       |
-| ---------- | ---- | ------------------------------------------------- |
-| serverUUID | Guid | The servers UUID corresponding to the messagelog. |
-
-**Returns:**  
-| Name       | Type       | Description                                                  |
-| ---------- | ---------- | ------------------------------------------------------------ |
-| messageLog | MessageLog | Returns the MessageLog corresponding to the parameters UUID. |
-
-**Usage:**  
-This function will be used to read out the various messages tho then be sorted by channelID and then be displayed on the TUI depending on which channel is selected.
-
-
-#### `void UpdateMessagelog(Message _message) {}`
-
-**Description:**  
-This function adds the message specified in the parameter into the respective messagelog by the UUID specified in the message object, it uses `ReadMessageLog()` to access the "messagesList" to then add the message into it and serialize it back into a json text which sis then written into the messageLog.json whereas for the path the filemanagers `GetMessageLogPath(Guid serverUUID)` was used.
-
-**Returns:**
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| N/A  | N/A  | N/A         |
+Returns Server Object based on given ServerUUID. (no errorhandling implemented)
 
 **Usage:**
-This function is used to add messages to the messagelog, this will be used in the process of recieving messages and storeing them into the local files.
+Used to GET a server by ServerUUID.
 
-
-### Setup
-
-#### `ReadWriteData readWriteData`
+#### `public void UpdateSetupUserList`
 
 **Description:**  
-An instance of the [`ReadWriteData`](#readwritedata) Class to use the [`UpdateUserList()`](#void-updatesetupuserlistsetupuser-_setupuser-) to write the newly selected user into the local storage.
-
-
-#### `public void UserSetupPrompt() {}`
-
-**Description:**  
-This void function prompts the user on startup which alias thy want to use for the current session, the options are to use the most recent username or to create a new user.
-
-![executed function as demonstration](dem-usersetupptompt.png)
-
-**Usage:**  
-This is only once used on stardup to get the users alias/username, to further use it to sign messages and user activity on servers.
-
-
-#### `public void CreateSetupUser() {}`
-
-**Description:**  
-This function is called by [`UserSetupPrompt()`](#public-void-usersetupprompt-) and prompts the user to enter a new username, the username cant be shorter then zero and longer then 32 characters.
-
-![executed function as demonstration](dem-createsetupuser.png)
-
-**Usage:**  
-This function manages the prompt and the input resulting from the prompt. The entered name gets processed by [ReadWriteData.UpdateSetupUserList()](#void-updatesetupuserlistsetupuser-_setupuser-).s
-
-
-
----
-#### `function name (parameters) -> return `  
-**Description:**  
->  
-
-**Parameters:**  
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
-
-**Returns:**  
-| Type | Description |
-| ---- | ----------- |
-
-
-**Exeptions/Errors:**  
->  
+Adds a SetupUser to save, overrides last saved User. Said to be cofigurable in the future.
 
 **Usage:**
->  
+Used to save SetupUser after creation.
 
-### CLI-Controller
----
+#### `public void OverrideSetupUserList`
 
-## Server
-### Setup
----
-### SV-Controller
+**Description:**  
+Testing Function to test override.
+
+**Usage:**  
+Used for testing, now no more.  
+
+#### `public LocalUser ReadSetupUserList`
+
+**Description:**  
+Returns Current localUsere aka. SetupUser.
+
+**Usage:**  
+GET the Username to sign messages and to be displayed.
+
+#### `public MessageLog ReadMessageLog`
+
+**Description:**
+Reading out of JSON file to messageLog Object.
+
+**Usage:**  
+Used to be displayed the full Message log on command.
+
+#### `public void UpdateMEssageLog`
+
+**Description:**  
+Adds Message Object into MessageLog Json.
+
+**Usage:**  
+Used to insert New messages into messageLits/MessageLog.
+
+### SetupLocalUser
+---------------------------------------------
+
+#### `public void UserSetupPrompt`
+
+**Description:**  
+Prompts the user to coose to create a new username or select the most recent one.
+
+#### `public void CreateSetupUser`
+
+**Description:**  
+Function creates a new UserObject and prompts the user to enter a name and checks if it fits into the requrements. e. x. if the name is too long or too short. 
+
+### User
+
+**Description:**
+Fully comented out code, used to test SetupUser calss before gettin implemented differently.
+
+### Server Classes
+
+#### `public class ServerList`
+
+**Parameters:**
+
+| Name    | Type         | Description     |
+| ------- | ------------ | --------------- |
+| Servers | List<Server> | List of servers |
+
+#### `public class Server`
+
+**Parameters:**  
+| Name        | Type          | Description                              |
+| ----------- | ------------- | ---------------------------------------- |
+| Ip          | string        | Ip address of the server                 |
+| Port        | int           | Port on the Hostdevice                   |
+| Name        | string        | Name of the server                       |
+| Description | string        | Custom description of the server         |
+| UUID        | Guid          | Universally unique identifier            |
+| Channels    | List<Channel> | List of channels contained in the server |
+
+**Description:**
+Two seperate consturctors one for having a singular channels in the server object, one to add a list full of channels. 
+
+##### `public void UpdateChannel`
+
+**Description:**
+Looks for a channel to update and overrides one by matching UUID.
+
+##### `public string GetLocalIpAddress`
+
+**Description:**
+Used to get the local Ip address of the host device to later open up a server/ port to allow network traffic.
+
+#### `public class Channel`
+
+**Parameters:**  
+| Name        | Type   | Description                      |
+| ----------- | ------ | -------------------------------- |
+| Name        | string | Name of the channel              |
+| Description | string | short description of the channel |
+| UUID        | Guid   | UUID to identify each channel    |
+
+### ServerDataCrud
+
+#### `public string directoryPath`
+**Description:** is a variable that contains the path to the app directory.
+
+#### `public string serverListPath`
+**Description:** is a variable that contains tha path to the server list foulder.
+
+#### `public void SettupAppDir`
+**Description:** checks if directories exists and creates new ones if needed.
+
+#### `public ServerList GetServers`
+**Description:** Simply reads JSON file and outputs the ServerList object.
+
+#### `public string GetServerAsJson`
+**Description:** Outputs a json string of the Serverlist.
+
+#### `public void AddServer`
+**Description:** Adds server to the serverlist. (no errorhandling, may not work)
+
+#### `public void DeleteServer`
+**Description:** Takes Server as argument to delete server from Serverlist (no errorhandling, may not work)
+
+#### `public void UpdateServer`
+**Description:** Takes a Server and overrides Already existing ServerProfile in server list.
+
+#### `public Server GetServer`
+**Description:** Gets Server By UUID.
+
+### ServerSetup
+
+#### `public Server ServerSetupPromptByJSON`
+**Description:** Nonfunctional way to create Server instead of entering values manually. (does not work)
+
+#### `public Server ServerSetupPrompt`
+**Description:** Manual way to create a server, prompts the user to create a server value by value.
+
+#### `public Channel SetupChannel`
+**Description:** Recursively used function to create channels.
+
+#### `public List<Channel> SetupChannelRecursive`
+**Description:** Generates a given amount of channels.
+
+#### `static int ReadInt`
+**Description:** Takes a range of integer and includes errorhandling.
+
+#### `public string ReadString`
+**Description:** Takes a string with a given range of length and includes errorhandling.
+
+
 
