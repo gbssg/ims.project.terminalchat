@@ -438,6 +438,3 @@ Used to get the local Ip address of the host device to later open up a server/ p
 
 #### `public string ReadString`
 **Description:** Takes a string with a given range of length and includes errorhandling.
-
-
-
