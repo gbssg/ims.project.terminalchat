@@ -12,15 +12,10 @@
       - [`void ProcessPackage(string _receivedString)`](#void-processpackagestring-_receivedstring)
     - [Dataclasses](#dataclasses)
       - [`public class SetupUser`](#public-class-setupuser)
-  - [| Name | string | -           |](#-name--string--------------)
       - [`public class LocalUser`](#public-class-localuser)
-  - [| setupUsers | List | list of SetupUser names |](#-setupusers--list--list-of-setupuser-names-)
       - [`public class User`](#public-class-user)
-  - [| UserJoinDate | DateTime | Creation date of this user |](#-userjoindate--datetime--creation-date-of-this-user-)
       - [`public class Channel`](#public-class-channel)
-  - [| ChannelDescription | string | Custom description of this channel |](#-channeldescription--string--custom-description-of-this-channel-)
       - [`public class Message`](#public-class-message)
-  - [| Body       | string   | Content of the message                        |](#-body--------string----content-of-the-message------------------------)
       - [`public class MessageLog`](#public-class-messagelog)
       - [`public class Server`](#public-class-server)
       - [`public class ServerList`](#public-class-serverlist)
@@ -70,7 +65,6 @@
       - [`static int ReadInt`](#static-int-readint)
       - [`public string ReadString`](#public-string-readstring)
 
------
 ## Remark
 Not all features may be in use in the current version of the code.
 
@@ -98,7 +92,6 @@ Using `System.threading;` creates a passively running thread that receives messa
 Using `System.Text.Json;` try to deserialize Json String to message or server Object 
 
 ### Dataclasses
-----------------------------------
 
 #### `public class SetupUser`
 
@@ -106,14 +99,14 @@ Using `System.Text.Json;` try to deserialize Json String to message or server Ob
 | Name | Type   | Description |
 | ---- | ------ | ----------- |
 | Name | string | -           |
----
+
 #### `public class LocalUser`
 
 **Parameters:**  
 | Name       | Type            | Description             |
 | ---------- | --------------- | ----------------------- |
 | setupUsers | List<SetupUser> | list of SetupUser names |
----
+
 #### `public class User`
 
 **Parameters:**  
@@ -121,7 +114,7 @@ Using `System.Text.Json;` try to deserialize Json String to message or server Ob
 | ------------ | -------- | -------------------------- |
 | UserName     | string   | The name of this user      |
 | UserJoinDate | DateTime | Creation date of this user |
----
+
 #### `public class Channel`
 
 **Parameters:**  
@@ -130,7 +123,7 @@ Using `System.Text.Json;` try to deserialize Json String to message or server Ob
 | ChannelId          | int    | Unique Identifier                  |
 | ChannelName        | string | Name of this channel               |
 | ChannelDescription | string | Custom description of this channel |
----
+
 #### `public class Message`
 
 **Parameters:**  
@@ -142,7 +135,6 @@ Using `System.Text.Json;` try to deserialize Json String to message or server Ob
 | Sender     | User     | user that sent the message                    |
 | Timestamp  | DateTime | Time when the message was sent                |
 | Body       | string   | Content of the message                        |
----
 
 #### `public class MessageLog`
 
@@ -167,7 +159,6 @@ Using `System.Text.Json;` try to deserialize Json String to message or server Ob
 | servers    | List<Server> | list of servers                    |
 
 ### FileManager
------------------------------------------------------------
 
 #### `string directoryPath`
 
@@ -329,7 +320,6 @@ Adds Message Object into MessageLog Json.
 Used to insert New messages into messageLits/MessageLog.
 
 ### SetupLocalUser
----------------------------------------------
 
 #### `public void UserSetupPrompt`
 
