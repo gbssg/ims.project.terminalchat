@@ -9,10 +9,23 @@ Everything runs directly over standard TCP/IP connections. No APIs, just straigh
 ## Usage
 Terminal Chat is for anyone who wants a simple, self-managed chat solution without relying on corporate services. It’s lightweight, easy to set up, and keeps you in control of your own data.
 
-## Gallery
-> screenshots to be added
-## Installing
-> installation guide to be added
+## Codedoc
+
+[Documentation](Doc\00-Codedoc.md)
+
+## Current state
+
+Can:
+- Manage Files
+- Read from Json-files
+- Write to Json-files
+- Create necessary classes for basic Ip/TCP connection
+
+Can't:
+- Display
+- Actually working networking
+- Encrypt
+- 
 
 ## Features
 * Self-hostable chat server and client, in terminal
