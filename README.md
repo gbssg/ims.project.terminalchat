@@ -6,7 +6,7 @@ Messages aren’t stored on the server at all only on the client side, saved in 
 
 Everything runs directly over standard TCP/IP connections. No APIs, just straightforward TCP/IP communication.
 
-By now (10.02.2026) the Project has stopped due to: one, lack of drive, two lack of things to be learned (not determined by me).
+By now (10.02.2026) the Project has stopped due to: one, lack of drive, two lack of things to be learned.
 
 ## Usage
 Terminal Chat is for anyone who wants a simple, self-managed chat solution without relying on corporate services. It’s lightweight, easy to set up, and keeps you in control of your own data.
@@ -30,12 +30,14 @@ The Program can't:
 
 
 ## Features
-* Self-hostable "chat" server and client, in terminal*
+
 * No server-side logs 
 * JSON-based data storage
-* Pure TCP/IP "connection"*
 
-### *Planned Features
+
+### Planned Features
+* Self-hostable "chat" server and client, in terminal
+* Pure TCP/IP "connection"
 * Responsive interface for different terminal sizes
 * Encrypted connections for secure messaging
 * Configurable settings interface
