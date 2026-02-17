@@ -30,12 +30,14 @@ The Program can't:
 
 
 ## Features
-* Self-hostable "chat" server and client, in terminal*
+
 * No server-side logs 
 * JSON-based data storage
-* Pure TCP/IP "connection"*
 
-### *Planned Features
+
+### Planned Features
+* Self-hostable "chat" server and client, in terminal
+* Pure TCP/IP "connection"
 * Responsive interface for different terminal sizes
 * Encrypted connections for secure messaging
 * Configurable settings interface
