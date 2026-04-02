@@ -4,70 +4,79 @@
 
 - [Code-Doc](#code-doc)
   - [Content](#content)
-  - [Remark](#remark)
-  - [Client](#client)
-    - [ClientTcpConnection](#clienttcpconnection)
-      - [`void ListenToServer(Server _server)`](#void-listentoserverserver-_server)
-      - [`void TcpReciveThread(NetworkStream _stream)`](#void-tcprecivethreadnetworkstream-_stream)
-      - [`void ProcessPackage(string _receivedString)`](#void-processpackagestring-_receivedstring)
-    - [Dataclasses](#dataclasses)
-      - [`public class SetupUser`](#public-class-setupuser)
-      - [`public class LocalUser`](#public-class-localuser)
-      - [`public class User`](#public-class-user)
-      - [`public class Channel`](#public-class-channel)
-      - [`public class Message`](#public-class-message)
-      - [`public class MessageLog`](#public-class-messagelog)
-      - [`public class Server`](#public-class-server)
-      - [`public class ServerList`](#public-class-serverlist)
-    - [FileManager](#filemanager)
-      - [`string directoryPath`](#string-directorypath)
-      - [`string setupUserPath`](#string-setupuserpath)
-      - [`string serverListPath`](#string-serverlistpath)
-      - [`void SetupAppDir() {}`](#void-setupappdir-)
-      - [`void CreateServerProfile(Server server) {}`](#void-createserverprofileserver-server-)
-      - [`string GetServerProfilePath(Guid serverUUID) {}`](#string-getserverprofilepathguid-serveruuid-)
-      - [`string GetMessageLogPath(Guid serverUUID) {}`](#string-getmessagelogpathguid-serveruuid-)
-    - [ReadWriteData](#readwritedata)
-      - [`public void UpdateServerList`](#public-void-updateserverlist)
-      - [`public ServerList ReadServerList`](#public-serverlist-readserverlist)
-      - [`public void UpdateServerProfile`](#public-void-updateserverprofile)
-      - [`public Server ReadServerProfile`](#public-server-readserverprofile)
-      - [`public void UpdateSetupUserList`](#public-void-updatesetupuserlist)
-      - [`public void OverrideSetupUserList`](#public-void-overridesetupuserlist)
-      - [`public LocalUser ReadSetupUserList`](#public-localuser-readsetupuserlist)
-      - [`public MessageLog ReadMessageLog`](#public-messagelog-readmessagelog)
-      - [`public void UpdateMEssageLog`](#public-void-updatemessagelog)
-    - [SetupLocalUser](#setuplocaluser)
-      - [`public void UserSetupPrompt`](#public-void-usersetupprompt)
-      - [`public void CreateSetupUser`](#public-void-createsetupuser)
-    - [User](#user)
-    - [Server Classes](#server-classes)
-      - [`public class ServerList`](#public-class-serverlist-1)
-      - [`public class Server`](#public-class-server-1)
-        - [`public void UpdateChannel`](#public-void-updatechannel)
-        - [`public string GetLocalIpAddress`](#public-string-getlocalipaddress)
-      - [`public class Channel`](#public-class-channel-1)
-    - [ServerDataCrud](#serverdatacrud)
-      - [`public string directoryPath`](#public-string-directorypath)
-      - [`public string serverListPath`](#public-string-serverlistpath)
-      - [`public void SettupAppDir`](#public-void-settupappdir)
-      - [`public ServerList GetServers`](#public-serverlist-getservers)
-      - [`public string GetServerAsJson`](#public-string-getserverasjson)
-      - [`public void AddServer`](#public-void-addserver)
-      - [`public void DeleteServer`](#public-void-deleteserver)
-      - [`public void UpdateServer`](#public-void-updateserver)
-      - [`public Server GetServer`](#public-server-getserver)
-    - [ServerSetup](#serversetup)
-      - [`public Server ServerSetupPromptByJSON`](#public-server-serversetuppromptbyjson)
-      - [`public Server ServerSetupPrompt`](#public-server-serversetupprompt)
-      - [`public Channel SetupChannel`](#public-channel-setupchannel)
-      - [`public List<Channel> SetupChannelRecursive`](#public-listchannel-setupchannelrecursive)
-      - [`static int ReadInt`](#static-int-readint)
-      - [`public string ReadString`](#public-string-readstring)
+  - [Concept](#concept)
+    - [Datenmodelle](#datenmodelle)
+    - [Architecture](#architecture)
+  - [Improvements](#improvements)
+    - [Current state -  Github Issues](#current-state----github-issues)
+  - [Design-ideen](#design-ideen)
+  
+## Concept
 
-## Remark
-Not all features may be in use in the current version of the code.
+### Datenmodelle
 
+### Architecture
+
+Code
+- TerminalChatV1/
+  - .vs/
+  - TerminalChatServerV1/
+    - bin/
+    - obj/
+    - Properties/
+    - Program.cs
+    - ServerClasses.cs
+    - ServerDataCrud.cs
+    - ServerTcpConnection.cs
+    - TerminalChatServer.csproj
+    - TerminalChatServer.csproj.user
+  - TerminalChatV1/
+    - bin/
+    - Data/
+    - obj/
+    - Properties/
+    - ClientTcpConnection.cs
+    - DataClasses.cs
+    - FileManager.cs
+    - Program.cs
+    - ReadWriteData.cs
+    - SetupLocalUser.cs
+    - TerminalChatUser.csproj
+    - TerminalChatUser.csproj.user
+  - TerminlChat.sln
+
+## Improvements
+
+### Current state -  Github Issues
+Is done:
+- [Most Planning aspects](https://github.com/gbssg/ims.project.terminalchat/issues?q=is%3Aissue%20is%3Aclosed%20label%3Adoc)
+
+Is not done:
+- [Userguid, Userinstallation, etc.](https://github.com/gbssg/ims.project.terminalchat/issues?q=is%3Aissue%20is%3Aopen%20label%3Adoc)
+- [Client Interface](https://github.com/gbssg/ims.project.terminalchat/issues/24)
+  - [Infobox](https://github.com/gbssg/ims.project.terminalchat/issues/69)
+  - [Messagebox](https://github.com/gbssg/ims.project.terminalchat/issues/68)
+  - [Textbox](https://github.com/gbssg/ims.project.terminalchat/issues/67)
+- [Client Controller](https://github.com/gbssg/ims.project.terminalchat/issues/23)
+
+To improve or add:
+- Add encryption
+- Add voicecall support
+- Add support for dotfiles (customization)
+
+## Design-ideen
+
+My defined principle is that the default design should look simple, the user should not be distracted by some fancy design.
+The User should be able to customize the application via a design file.
+
+
+
+
+
+
+<!--
+
+Move this part into code files as XML doc if deemed needed
 
 ## Client
 ### ClientTcpConnection
@@ -428,3 +437,4 @@ Used to get the local Ip address of the host device to later open up a server/ p
 
 #### `public string ReadString`
 **Description:** Takes a string with a given range of length and includes errorhandling.
+-->
