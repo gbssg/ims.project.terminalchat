@@ -1,5 +1,7 @@
 # TerminalChat
+
 ## About
+
 Terminal Chat is a lightweight, discord/IRC like, self-hostable chat setup that runs both server and client right in your terminal. It’s minimal and a bit old-school by design, mixing the feel of classic command-line tools with just enough modern features to make it useful.
 
 Messages aren’t stored on the server at all only on the client side, saved in simple JSON files and directories. That means no databases to set up or manage which eats up your storage.
@@ -7,12 +9,13 @@ Messages aren’t stored on the server at all only on the client side, saved in 
 Everything runs directly over standard TCP/IP connections. No APIs, just straightforward TCP/IP communication.
 
 ## Usage
+
 Terminal Chat is for anyone who wants a simple, self-managed chat solution without relying on corporate services. It’s lightweight, easy to set up, and keeps you in control of your own data. The target user is somebody who's aware of where data is usualy hosted, stored and likes to host services in their local network. 
 
 ## Codedoc
 
-[Documentation](Doc\00-Codedoc.md)
-[Manunal](Doc/01-Usermanual.md)
+- [Documentation](Doc\00-Codedoc.md)  
+- [Manunal](Doc/01-Usermanual.md)
 
 ## Current state
 
@@ -60,6 +63,6 @@ The Program can't:
 
 ## Status
 
-Not in development.
+Unfinished and not in development anymore.
 
 

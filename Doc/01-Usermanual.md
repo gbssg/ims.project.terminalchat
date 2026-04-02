@@ -1,9 +1,9 @@
 # TerminalChat
 
-## Inhalt
+## Content
 - [TerminalChat](#terminalchat)
-  - [Inhalt](#inhalt)
-  - [Infrastruktur](#infrastruktur)
+  - [Content](#content)
+  - [Infrastructure](#infrastructure)
     - [Technology](#technology)
     - [Plattform](#plattform)
   - [Implementation](#implementation)
@@ -13,8 +13,8 @@
 [Readme](dok-example\README.md)  
 [Tech-dock](dok-example\tech-doc.md)
 
-## Infrastruktur
- The runtimedata to the respective applications is stored in either `C:\\...\\...\AppData\Roaming\TerminalChatCLI`, or  `C:\\...\\...\AppData\Roaming\TerminalChatServer`. 
+## Infrastructure
+ The runtimedata to the respective applications is stored in either `C:\...\...\AppData\Roaming\TerminalChatCLI`, or  `C:\...\...\AppData\Roaming\TerminalChatServer`. 
 
 ### Technology
 

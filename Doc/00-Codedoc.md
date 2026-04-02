@@ -5,49 +5,42 @@
 - [Code-Doc](#code-doc)
   - [Content](#content)
   - [Concept](#concept)
-    - [Datenmodelle](#datenmodelle)
     - [Architecture](#architecture)
+      - [Repo structure](#repo-structure)
   - [Improvements](#improvements)
-    - [Current state -  Github Issues](#current-state----github-issues)
-  - [Design-ideen](#design-ideen)
+    - [Current state - Github Issues](#current-state---github-issues)
+  - [Design-ideas](#design-ideas)
   
 ## Concept
 
-### Datenmodelle
-
 ### Architecture
 
-Code
-- TerminalChatV1/
-  - .vs/
-  - TerminalChatServerV1/
-    - bin/
-    - obj/
-    - Properties/
-    - Program.cs
-    - ServerClasses.cs
-    - ServerDataCrud.cs
-    - ServerTcpConnection.cs
-    - TerminalChatServer.csproj
-    - TerminalChatServer.csproj.user
-  - TerminalChatV1/
-    - bin/
-    - Data/
-    - obj/
-    - Properties/
-    - ClientTcpConnection.cs
-    - DataClasses.cs
-    - FileManager.cs
-    - Program.cs
-    - ReadWriteData.cs
-    - SetupLocalUser.cs
-    - TerminalChatUser.csproj
-    - TerminalChatUser.csproj.user
-  - TerminlChat.sln
-
+#### Repo structure
+```
+TerminalChatV1/    
+├── .vs/  
+├── TerminalChatServerV1/  
+│   ├── Properties/  
+│   ├── Program.cs  
+│   ├── ServerClasses.cs  
+│   ├── ServerDataCrud.cs  
+│   ├── ServerTcpConnection.cs  
+│   ├── TerminalChatServer.csproj  
+│   └── TerminalChatServer.csproj.user  
+├── TerminalChatV1/  
+│   ├── ClientTcpConnection.cs  
+│   ├── DataClasses.cs  
+│   ├── FileManager.cs  
+│   ├── Program.cs  
+│   ├── ReadWriteData.cs  
+│   ├── SetupLocalUser.cs  
+│   ├── TerminalChatUser.csproj  
+│   └── TerminalChatUser.csproj.user  
+└── TerminlChat.sln  
+```
 ## Improvements
 
-### Current state -  Github Issues
+### Current state - Github Issues
 Is done:
 - [Most Planning aspects](https://github.com/gbssg/ims.project.terminalchat/issues?q=is%3Aissue%20is%3Aclosed%20label%3Adoc)
 
@@ -64,7 +57,7 @@ To improve or add:
 - Add voicecall support
 - Add support for dotfiles (customization)
 
-## Design-ideen
+## Design-ideas
 
 My defined principle is that the default design should look simple, the user should not be distracted by some fancy design.
 The User should be able to customize the application via a design file.
