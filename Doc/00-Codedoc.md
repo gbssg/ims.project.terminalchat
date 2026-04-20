@@ -1,12 +1,12 @@
-# Code-Doc
+# TerminalCaht - Code-Doc
 
 ## Content
 
-- [Code-Doc](#code-doc)
+- [TerminalCaht - Code-Doc](#terminalcaht---code-doc)
   - [Content](#content)
   - [Concept](#concept)
     - [Architecture](#architecture)
-      - [Repo structure](#repo-structure)
+      - [Programm structure](#programm-structure)
   - [Improvements](#improvements)
     - [Current state - Github Issues](#current-state---github-issues)
   - [Design-ideas](#design-ideas)
@@ -15,7 +15,16 @@
 
 ### Architecture
 
-#### Repo structure
+The clientside is structured as seen in the class-diagramm: 
+
+![Client Classdiagramm](../Dokumente/Diagramme/classdiagramm_clientV3.png)
+
+The serverside is structured as seen in the class-diagramm:
+
+![Server Classdiagramm](../Dokumente/Diagramme/classdiagramm_server3.png)
+
+#### Programm structure
+
 ```
 TerminalChatV1/    
 ├── .vs/  
@@ -38,9 +47,11 @@ TerminalChatV1/
 │   └── TerminalChatUser.csproj.user  
 └── TerminlChat.sln  
 ```
+
 ## Improvements
 
 ### Current state - Github Issues
+
 Is done:
 - [Most Planning aspects](https://github.com/gbssg/ims.project.terminalchat/issues?q=is%3Aissue%20is%3Aclosed%20label%3Adoc)
 

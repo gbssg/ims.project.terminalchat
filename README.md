@@ -12,28 +12,16 @@ Everything runs directly over standard TCP/IP connections. No APIs, just straigh
 
 Terminal Chat is for anyone who wants a simple, self-managed chat solution without relying on corporate services. It’s lightweight, easy to set up, and keeps you in control of your own data. The target user is somebody who's aware of where data is usualy hosted, stored and likes to host services in their local network. 
 
-## Codedoc
+## Other documentations
 
-- [Documentation](Doc\00-Codedoc.md)  
+- [Documentation](Doc/00-Codedoc.md)  
 - [Manunal](Doc/01-Usermanual.md)
 
-## Current state
-
-The Program is capable of:
-- Managing Files
-- Reading from Json-files
-- Writeing to Json-files
-- Createing necessary classes for basic Ip/TCP connection
-
-The Program can't:
-- Display an interface
-- communicate between server and client
-- Encrypt
 
 ## Features
 
 * No server-side logs 
-* client JSON-based data storage
+* Client JSON-based data storage
 
 ### Planned Features
 
@@ -43,24 +31,33 @@ The Program can't:
 * Encrypted connections for secure messaging
 * Configurable settings interface
 * Custom themes / template layouts
-* Split-terminal functionality for multitasking
  
 ## Limitations
 
-* No built-in encryption (yet)
+* No built-in encryption ( yet )
 * No explicit File/Media shareing
-* No voice/video calls (mabey future voicecalls)
+* No voice/video calls ( mabey future voicecalls )
 
 ## Tech stack
 
 * Language: C# .net, the core application is built entirely in C# for cross-platform compatibility.
-
 * Networking: TCP/IP connections, messages are sent directly over the network. 
-
 * Data Storage: Simple JSON files, all client-side data is stored locally.
-
 * Interface: Terminal-based UI, minimalistic and lightweight, specifically for command-line use.
 
+## Current state
+
+The Program is capable of:
+- Managing Files
+- Reading from Json-files
+- Writeing to Json-files
+- Createing necessary classes for basic IP/TCP connection
+
+The Program can't:
+- Display an interface
+- Communicate between server and client
+- Encrypt
+- 
 ## Status
 
 Unfinished and not in development anymore.
