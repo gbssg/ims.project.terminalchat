@@ -1,12 +1,12 @@
-# TerminalCaht - Code-Doc
+# TerminalChat - Code-Doc
 
 ## Content
 
-- [TerminalCaht - Code-Doc](#terminalcaht---code-doc)
+- [TerminalChat - Code-Doc](#terminalchat---code-doc)
   - [Content](#content)
   - [Concept](#concept)
     - [Architecture](#architecture)
-      - [Programm structure](#programm-structure)
+      - [Program structure](#program-structure)
   - [Improvements](#improvements)
     - [Current state - Github Issues](#current-state---github-issues)
   - [Design-ideas](#design-ideas)
@@ -15,15 +15,15 @@
 
 ### Architecture
 
-The clientside is structured as seen in the class-diagramm: 
+The client-side is structured as seen in the class-diagramm: 
 
-![Client Classdiagramm](../Dokumente/Diagramme/classdiagramm_clientV3.png)
+![client class diagram](../Dokumente/Diagramme/classdiagramm_clientV3.png)
 
-The serverside is structured as seen in the class-diagramm:
+The server-side is structured as seen in the class-diagramm:
 
-![Server Classdiagramm](../Dokumente/Diagramme/classdiagramm_server3.png)
+![server class diagram](../Dokumente/Diagramme/classdiagramm_server3.png)
 
-#### Programm structure
+#### Program structure
 
 ```
 TerminalChatV1/    
@@ -45,7 +45,7 @@ TerminalChatV1/
 │   ├── SetupLocalUser.cs  
 │   ├── TerminalChatUser.csproj  
 │   └── TerminalChatUser.csproj.user  
-└── TerminlChat.sln  
+└── TerminalChat.sln  
 ```
 
 ## Improvements
@@ -337,7 +337,7 @@ Used to insert New messages into messageLits/MessageLog.
 #### `public void UserSetupPrompt`
 
 **Description:**  
-Prompts the user to coose to create a new username or select the most recent one.
+Prompts the user to choose to create a new username or select the most recent one.
 
 #### `public void CreateSetupUser`
 

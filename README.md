@@ -10,12 +10,12 @@ Everything runs directly over standard TCP/IP connections. No APIs, just straigh
 
 ## Usage
 
-Terminal Chat is for anyone who wants a simple, self-managed chat solution without relying on corporate services. It’s lightweight, easy to set up, and keeps you in control of your own data. The target user is somebody who's aware of where data is usualy hosted, stored and likes to host services in their local network. 
+Terminal Chat is for anyone who wants a simple, self-managed chat solution without relying on corporate services. It’s lightweight, easy to set up, and keeps you in control of your own data. The target user is somebody who's aware of where data is usually hosted, stored and likes to host services in their local network. 
 
 ## Other documentations
 
 - [Documentation](Doc/00-Codedoc.md)  
-- [Manunal](Doc/01-Usermanual.md)
+- [Manual](Doc/01-Usermanual.md)
 
 
 ## Features
@@ -34,9 +34,9 @@ Terminal Chat is for anyone who wants a simple, self-managed chat solution witho
  
 ## Limitations
 
-* No built-in encryption ( yet )
-* No explicit File/Media shareing
-* No voice/video calls ( mabey future voicecalls )
+* No built-in message encryption
+* No explicit File/Media sharing
+* No voice/video calls ( maybe future voicecalls )
 
 ## Tech stack
 
@@ -49,14 +49,14 @@ Terminal Chat is for anyone who wants a simple, self-managed chat solution witho
 
 The Program is capable of:
 - Managing Files
-- Reading from Json-files
-- Writeing to Json-files
-- Createing necessary classes for basic IP/TCP connection
+- Reading from JSON files
+- Writing to JSON files
+- Creating necessary classes for basic IP/TCP connection
 
 The Program can't:
 - Display an interface
 - Communicate between server and client
-- Encrypt
+- Encrypt messages
 - 
 ## Status
 
