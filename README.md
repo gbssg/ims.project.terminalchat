@@ -2,17 +2,21 @@
 
 ## About
 
-Terminal Chat is a lightweight, discord/IRC like, self-hostable chat setup that runs both server and client right in your terminal. It’s minimal and a bit old-school by design, mixing the feel of classic command-line tools with just enough modern features to make it useful.
+TerminalChat is a lightweight, Discord/IRC-like, self-hostable chat application that runs both the server and client directly in the terminal. It is minimal and intentionally old-school, combining the feel of classic command-line tools with a small set of modern features.
 
-Messages aren’t stored on the server at all only on the client side, saved in simple JSON files and directories. That means no databases to set up or manage which eats up your storage.
+Messages are not stored on the server; all data is kept client-side in simple JSON files and directories. This eliminates the need for database setup and reduces storage overhead.
 
-Everything runs directly over standard TCP/IP connections. No APIs, just straightforward TCP/IP communication.
+Communication is handled directly over standard TCP/IP connections. No external APIs are used—only straightforward socket-based networking.
 
 ## Usage
 
-Terminal Chat is for anyone who wants a simple, self-managed chat solution without relying on corporate services. It’s lightweight, easy to set up, and keeps you in control of your own data. The target user is somebody who's aware of where data is usually hosted, stored and likes to host services in their local network. 
+TerminalChat is for anyone who wants a simple, self-managed chat solution without relying on corporate services. It’s lightweight, easy to set up, and keeps you in control of your own data. The target user is someone who understands where data is typically hosted and prefers to run services within their own local network. 
 
-## Other documentations
+## Status
+
+This project is unfinished and no longer under active development.
+
+## Other documentation
 
 - [Documentation](Doc/00-Codedoc.md)  
 - [Manual](Doc/01-Usermanual.md)
@@ -25,8 +29,7 @@ Terminal Chat is for anyone who wants a simple, self-managed chat solution witho
 
 ### Planned Features
 
-* Self-hostable "chat" server and client, in terminal
-* Pure TCP/IP "connection"
+* Pure TCP/IP connection
 * Responsive interface for different terminal sizes
 * Encrypted connections for secure messaging
 * Configurable settings interface
@@ -36,7 +39,7 @@ Terminal Chat is for anyone who wants a simple, self-managed chat solution witho
 
 * No built-in message encryption
 * No explicit File/Media sharing
-* No voice/video calls ( maybe future voicecalls )
+* No voice/video calls (possible future feature)
 
 ## Tech stack
 
@@ -47,19 +50,16 @@ Terminal Chat is for anyone who wants a simple, self-managed chat solution witho
 
 ## Current state
 
-The Program is capable of:
+The program is capable of:
 - Managing Files
 - Reading from JSON files
 - Writing to JSON files
-- Creating necessary classes for basic IP/TCP connection
+- Creating necessary classes for basic TCP/IP connection
 
-The Program can't:
-- Display an interface
+The program can't:
+- PRovied a user interface
 - Communicate between server and client
 - Encrypt messages
-- 
-## Status
 
-Unfinished and not in development anymore.
 
 
