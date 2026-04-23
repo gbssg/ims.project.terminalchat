@@ -58,7 +58,7 @@ namespace TerminalChatClient
 
 				name = Console.ReadLine();
 
-				if (name.Length <= 0 || name == null)
+				if (name == null || name.Length <= 0)
 				{
 					Console.WriteLine("the name must be longer than zero!");
 				}

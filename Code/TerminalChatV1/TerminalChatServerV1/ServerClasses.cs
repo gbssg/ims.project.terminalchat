@@ -16,8 +16,6 @@ namespace TerminalChatServer
         public string? Description { get; set; }
         public Guid UUID { get; set; } = Guid.CreateVersion7();
         public List<Channel> Channels { get; set; } = new();
-
-        public Server() { }
         public Server(string _name, string _description, int _port , Channel _channel) 
         { 
             this.Ip = GetLocalIpAddress();

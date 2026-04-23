@@ -13,7 +13,7 @@ namespace TerminalChatV1
     internal class Program
     {
 
-        static string? serverIp;
+        static string serverIp = "";
         static int port;
 
         //static List<Tab> tabs = new List<Tab>();
@@ -23,7 +23,7 @@ namespace TerminalChatV1
             SetupLocalUser setupLocalUser = new();
             FileManager fileManager = new();
             ReadWriteData readWriteData = new();
-            ClientTcpConnection clientTcpConnection = new();
+            
 
 
             SetupUser slu = new();
@@ -38,23 +38,26 @@ namespace TerminalChatV1
             setupLocalUser.UserSetupPrompt();
 
             Setup();
-            clientTcpConnection.ListenToServer();
+            Connect();
 
             //KeyInputThread();
   
         }
         static void Connect()
         {
+            ClientTcpConnection clientTcpConnection = new();
+
             Console.Write("Gib die Server-IP ein: ");
             serverIp = Console.ReadLine() ?? "127.0.0.1"; // Standard ist localhost
 
             port = 5000;
+            clientTcpConnection.ListenToServer(Program.serverIp, port);
         }
         public void Debug()
         {
             Console.Write("Enter Debug?(j/n)");
-            string? a = Console.ReadLine();
-            if (a.ToLower().Equals("j")) 
+            string? answer = Console.ReadLine();
+            if (answer != null && answer.ToLower().Equals("j")) 
             {
                 // system diagnostics / debug
 
@@ -115,40 +118,6 @@ namespace TerminalChatV1
                 Console.ReadLine();
             }
         }
-        //static void KeyInputThread()
-        //{
-        //    Thread keyInput = new Thread(() =>
-        //    {
-        //        while (true)
-        //        {
-
-        //            var keyInfo = Console.ReadKey(intercept:true);
-        //            switch (keyInfo.Key)
-        //            {
-        //                case ConsoleKey.RightArrow:
-        //                    //Console.WriteLine("pgup");
-        //                    SwitchTab(1);
-        //                    break;
-
-        //                case ConsoleKey.LeftArrow:
-        //                    //Console.WriteLine("pgdn");
-        //                    SwitchTab(0);
-        //                    break;
-
-        //                case ConsoleKey.Enter:
-        //                    SelectTab();
-        //                    break;
-                            
-
-
-        //            }
-
-
-        //            // if Key is ... then ... aktion bsp switch tabs.
-        //        }
-        //    });
-        //    keyInput.Start();
-        //}
 
         static void Setup()
         {

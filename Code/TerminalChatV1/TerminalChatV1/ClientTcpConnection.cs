@@ -9,13 +9,13 @@ namespace TerminalChatClient
 {
     public class ClientTcpConnection
     {
-        public void ListenToServer(Server _server)
+        public void ListenToServer(string hostname, int port)
         {
             try
             {
-                using (TcpClient client = new TcpClient(_server.ServerIp, _server.Port))
+                using (TcpClient client = new TcpClient(hostname, port))
                 {
-                    Console.WriteLine($"Verbunden mit {_server.ServerIp}:{_server.Port}");
+                    Console.WriteLine($"Verbunden mit {hostname}:{port}");
                     NetworkStream stream = client.GetStream();
                 }
             }
@@ -26,7 +26,7 @@ namespace TerminalChatClient
             }
         }
 
-        public void TcpReciveThread(NetworkStream _stream)
+        public static void TcpReciveThread(NetworkStream _stream)
         {
             // Empfängt Nachrichten vom Server
             Thread receiveThread = new Thread(() =>
@@ -39,35 +39,10 @@ namespace TerminalChatClient
                     if (bytesRead == 0) break;
                     
                     string receivedString = Encoding.UTF8.GetString(buffer, 0, bytesRead);
-                    //process package()
                 }
             });
             receiveThread.Start();
             
-        }
-        public iRecivable ProcessPackage(string _receivedString)
-        {
-            try
-            {
-                Message messsage = JsonSerializer.Deserialize<Message>( _receivedString );
-            }
-            catch
-            {
-                // to debug
-                Console.WriteLine("received message did not fit message class!");
-                try
-                {
-                    Server server = JsonSerializer.Deserialize<Server>( _receivedString );
-                }
-                catch
-                {
-                    // to debug
-                    Console.WriteLine("received message did not fit message or server class!");
-                }
-            }
-
-            return null; // null is temporary
-        }
-        
+        }        
     }
 }

@@ -20,7 +20,8 @@ namespace TerminalChatClient
 			if (index != -1)
 			{
 				ServerList.servers[index] = server;
-			}else
+			}
+			else
 			{
 				ServerList.servers.Add(server);
 			}
@@ -38,7 +39,7 @@ namespace TerminalChatClient
 			string jsonText = File.ReadAllText(fm.serverListPath);
 
 			// deserialize json string into serverlist object
-			ServerList serverList = JsonSerializer.Deserialize<ServerList>(jsonText);
+			ServerList serverList = JsonSerializer.Deserialize<ServerList>(jsonText)!;
 
 			return serverList;
 		}
@@ -57,7 +58,7 @@ namespace TerminalChatClient
 			string jsonText = File.ReadAllText(fm.GetServerProfilePath(serverUUID));
 
 			// deserialize json string into server object
-			Server server = JsonSerializer.Deserialize<Server>(jsonText);
+			Server server = JsonSerializer.Deserialize<Server>(jsonText)!;
 
 			return server;
 		}
@@ -66,7 +67,7 @@ namespace TerminalChatClient
 		public void UpdateSetupUserlist(SetupUser _setupUser)
 		{
 			LocalUsers setupUserList = ReadSetupUserlist();
-			
+
 			// only the most recent user gets saved, will be configurable in future version
 			setupUserList.SetupUsers[0] = _setupUser;
 
@@ -81,30 +82,29 @@ namespace TerminalChatClient
 		{
 			LocalUsers setupUserList = new();
 
-            setupUserList.SetupUsers.Add(_setupUser);
+			setupUserList.SetupUsers.Add(_setupUser);
 
-            var opt = new JsonSerializerOptions { WriteIndented = true };
-            string jsonText = JsonSerializer.Serialize(setupUserList, opt);
+			var opt = new JsonSerializerOptions { WriteIndented = true };
+			string jsonText = JsonSerializer.Serialize(setupUserList, opt);
 
-            File.WriteAllText(fm.setupUserPath, jsonText);
-        }
+			File.WriteAllText(fm.setupUserPath, jsonText);
+		}
 
 		public LocalUsers ReadSetupUserlist()
 		{
 			string jsonText = File.ReadAllText(fm.setupUserPath);
 
-			LocalUsers users = JsonSerializer.Deserialize<LocalUsers>(jsonText);
-			
+			LocalUsers users = JsonSerializer.Deserialize<LocalUsers>(jsonText)!;
+
 			return users;
 		}
 
 		public MessageLog ReadMessageLog(Guid serverUUID)
 		{
 			// get json string with Filemanager
-			string jsonText = File.ReadAllText(fm.GetMessageLogPath(serverUUID));
-
+			string jsonText = File.ReadAllText(fm.GetMessageLogPath(serverUUID)) ?? throw new Exception("MessageLog File Is empty");
 			// deserialize json string into server object
-			MessageLog messageLog = JsonSerializer.Deserialize<MessageLog>(jsonText);
+			MessageLog messageLog = JsonSerializer.Deserialize<MessageLog>(jsonText)!;
 
 			return messageLog;
 		}
@@ -112,17 +112,17 @@ namespace TerminalChatClient
 		public void UpdateMessagelog(Message _message)
 		{
 			// uses ReadMessageLog(Guid serverUUID); to get existing message log
-			MessageLog ml = ReadMessageLog(_message.ServerUUID);
+			MessageLog messageLog = ReadMessageLog(_message.ServerUUID);
 
 			// adds current message to the messages list
-			ml.Messages.Add(_message);
+			messageLog.Messages.Add(_message);
 
 			// serializses the ml object into json
 			var opt = new JsonSerializerOptions { WriteIndented = true };
-			string jsonText = JsonSerializer.Serialize(ml, opt);
+			string jsonText = JsonSerializer.Serialize(messageLog, opt);
 
 			// writes the json text onto the path provided by the fm.GetMessageLogPath(_message.ServerUUID)
-			File.WriteAllText(fm.GetMessageLogPath(_message.ServerUUID),jsonText);
+			File.WriteAllText(fm.GetMessageLogPath(_message.ServerUUID), jsonText);
 		}
 	}
 }
