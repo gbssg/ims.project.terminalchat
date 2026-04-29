@@ -36,7 +36,7 @@ This project is unfinished and no longer under active development.
 ## Tech stack
 | Component  | Technology     | Purpouse                              |
 | ---------- | -------------- | ------------------------------------- |
-| Backend    | c# / .Net core | Core server and client implementation |
+| Backend    | c# / .Net 10 core | Core server and client implementation |
 | Networking | TCP sockets    | Communication layer                   |
 | Database   | JSON           | Hand made JSON CRUD functions         |
 | Interface  | Terminal       | Minimal usage, light weight           |

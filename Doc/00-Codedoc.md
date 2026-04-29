@@ -9,19 +9,19 @@
       - [Program structure](#program-structure)
   - [Improvements](#improvements)
     - [Current state - Github Issues](#current-state---github-issues)
-  - [Design-ideas](#design-ideas)
+  - [UX Philosophy](#ux-philosophy)
   
 ## Concept
 
 ### Architecture
 
-The client-side is structured as seen in the class-diagramm: 
+The client-side is structured as seen in the class-diagramm, the dashed lines represent future features and how they would be connected to the programm. 
 
-![client class diagram](../Dokumente/Diagramme/classdiagramm_clientV3.png)
+![client concept diagramm](../Dokumente/Diagramme/client-concept-diagramm.svg)
 
-The server-side is structured as seen in the class-diagramm:
+The server-side is structured as seen in the class-diagramm, it soely consists of forwarding messages and distributing the server architecture to the clients, the server config is the anly thing that's stored on the server.
 
-![server class diagram](../Dokumente/Diagramme/classdiagramm_server3.png)
+![server concept diagramm](../Dokumente/Diagramme/server-concept-diagramm.svg)
 
 #### Program structure
 
@@ -50,12 +50,12 @@ TerminalChatV1/
 
 ## Improvements
 
-### Current state - Github Issues
+### Current state (q1 2026) - Github Issues
 
-Is done:
+Completed:
 - [Most Planning aspects](https://github.com/gbssg/ims.project.terminalchat/issues?q=is%3Aissue%20is%3Aclosed%20label%3Adoc)
 
-Is not done:
+Open:
 - [Userguid, Userinstallation, etc.](https://github.com/gbssg/ims.project.terminalchat/issues?q=is%3Aissue%20is%3Aopen%20label%3Adoc)
 - [Client Interface](https://github.com/gbssg/ims.project.terminalchat/issues/24)
   - [Infobox](https://github.com/gbssg/ims.project.terminalchat/issues/69)
@@ -67,8 +67,8 @@ To improve or add:
 - Add encryption
 - Add voicecall support
 - Add support for dotfiles (customization)
+- improve or add UI-designs
 
-## Design-ideas
+## UX Philosophy
 
-My defined principle is that the default design should look simple, the user should not be distracted by some fancy design.
-The User should be able to customize the application via a design file.
+The performance of the application should be prioritized, it should feel responsive and lightweight, it shouldn't try to compete with commercial enterprise-grade solutions, but more like a polished OSS product. 
