@@ -6,9 +6,7 @@
   - [Infrastructure](#infrastructure)
     - [Technology](#technology)
     - [Platform](#platform)
-  - [Implementation](#implementation)
-    - [Installation](#installation)
-    - [First steps](#first-steps)
+    - [](#)
 
 [Readme](dok-example/README.md)  
 [Tech-docs](dok-example/tech-doc.md)
@@ -18,7 +16,6 @@
 The runtime data to the respective applications is stored in either `C:\...\...\AppData\Roaming\TerminalChatCLI`, or  `C:\...\...\AppData\Roaming\TerminalChatServer`. 
 
 ### Technology
-
 * Programming language: C# with .net
   * I chose C# because I'm most familiar with it.
 * Interface: Terminal
@@ -33,14 +30,7 @@ The runtime data to the respective applications is stored in either `C:\...\...\
 * Compatibility: Linux and MacOS not tested.
   * I haven't tested cross-platform compatibility yet, but support was planned.
  
-## Implementation
+###  
 
-### Installation
-
-The Product isn't usable at the moment.
-
-### First steps
-
-The Product isn't usable at the moment.
 
 
