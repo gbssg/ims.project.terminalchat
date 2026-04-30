@@ -22,22 +22,22 @@ This project is unfinished and no longer under active development.
 - [Manual](Doc/01-Usermanual.md)
 
 ### Project capabilities
-| Feature                     | Status | 
-| --------------------------- | ------ | 
-| Clientside data storage     | Done   | 
-| Data stored as JSON         | Done   | 
-| TCP/IP communication        | Done   | 
-| Interactive user interface  | Idea   | 
-| Encrypted connection        | Idea   | 
-| Custom themes               | Idea   | 
-| built in File/Media sharing | Idea   | 
-| Voice- / Videochats         | Idea   | 
+| Feature                     | Status |
+| --------------------------- | ------ |
+| Clientside data storage     | Done   |
+| Data stored as JSON         | Done   |
+| TCP/IP communication        | Done   |
+| Interactive user interface  | Idea   |
+| Encrypted connection        | Idea   |
+| Custom themes               | Idea   |
+| built in File/Media sharing | Idea   |
+| Voice- / Videochats         | Idea   |
 
 ## Tech stack
-| Component  | Technology     | Purpouse                              |
-| ---------- | -------------- | ------------------------------------- |
+| Component  | Technology        | Purpouse                              |
+| ---------- | ----------------- | ------------------------------------- |
 | Backend    | c# / .Net 10 core | Core server and client implementation |
-| Networking | TCP sockets    | Communication layer                   |
-| Database   | JSON           | Hand made JSON CRUD functions         |
-| Interface  | Terminal       | Minimal usage, light weight           |
+| Networking | TCP sockets       | Communication layer                   |
+| Database   | JSON              | Hand made JSON CRUD functions         |
+| Interface  | Terminal          | Minimal usage, light weight           |
 
