@@ -8,7 +8,7 @@
     - [Architecture](#architecture)
       - [Program structure](#program-structure)
   - [Improvements](#improvements)
-    - [Current state - Github Issues](#current-state---github-issues)
+    - [Current state (q1 2026) - Github Issues](#current-state-q1-2026---github-issues)
   - [UX Philosophy](#ux-philosophy)
   
 ## Concept

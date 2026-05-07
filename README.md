@@ -34,9 +34,9 @@ This project is unfinished and no longer under active development.
 | Voice- / Videochats         | Idea   |
 
 ## Tech stack
-| Component  | Technology        | Purpouse                              |
+| Component  | Technology        | Purpose                               |
 | ---------- | ----------------- | ------------------------------------- |
-| Backend    | c# / .Net 10 core | Core server and client implementation |
+| Backend    | C# / .Net 10 Core | Core server and client implementation |
 | Networking | TCP sockets       | Communication layer                   |
 | Database   | JSON              | Hand made JSON CRUD functions         |
 | Interface  | Terminal          | Minimal usage, light weight           |
